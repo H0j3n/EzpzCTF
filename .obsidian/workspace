@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "README.md",
+            "file": "Writeup/SKRCTF/Warm_Up/Secure Shell/README.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "Writeup/SKRCTF/Warm_Up/Secure Shell/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,15 +88,15 @@
   },
   "active": "acaa709a5c4b2aab",
   "lastOpenFiles": [
-    "README.md",
+    "Writeup/SKRCTF/Warm_Up/Secure Shell/README.md",
     "Writeup/SKRCTF/Warm_Up/QR/README.md",
+    "Writeup/SKRCTF/Warm_Up/Secure Shell/Untitled.md",
+    "Writeup/SKRCTF/Warm_Up/NetCat/README.md",
     "Writeup/SKRCTF/Warm_Up/Base64/README.md",
+    "Writeup/SKRCTF/Warm_Up/NetCat/Untitled.md",
+    "README.md",
     "Writeup/SKRCTF/Warm_Up/QR/Untitled.md",
     "Writeup/SKRCTF/Warm_Up/Warm Up/Untitled.md",
-    "src/Pasted image 20210609131526.png",
-    "Writeup/SKRCTF/CryptoGraphy/Julius_Caesar/README.md",
-    "Writeup/SKRCTF/CryptoGraphy/Julius_Caesar/caesar.jpg",
-    "Writeup/SKRCTF/Forensics/Forensics_WarmUp_1/README.md",
-    "Writeup/SKRCTF/Web/Web_Warmup/README.md"
+    "src/Pasted image 20210609131526.png"
   ]
 }
