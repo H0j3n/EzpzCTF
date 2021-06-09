@@ -18,3 +18,4 @@ Open the image and we will get the flag.
 
 # Flag
 
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210609131431.png)

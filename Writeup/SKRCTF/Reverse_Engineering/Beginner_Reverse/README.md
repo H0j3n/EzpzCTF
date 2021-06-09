@@ -39,4 +39,5 @@ Then enter the correct password.
 
 # Flag
 
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210609131341.png)
 

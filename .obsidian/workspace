@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Writeup/SKRCTF/Web/Web_Warmup/README.md",
+            "file": "Writeup/SKRCTF/CryptoGraphy/Julius_Caesar/README.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Writeup/SKRCTF/Web/Web_Warmup/README.md",
+                "file": "Writeup/SKRCTF/CryptoGraphy/Julius_Caesar/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,7 +88,12 @@
   },
   "active": "acaa709a5c4b2aab",
   "lastOpenFiles": [
+    "Writeup/SKRCTF/CryptoGraphy/Julius_Caesar/README.md",
+    "Writeup/SKRCTF/CryptoGraphy/Julius_Caesar/caesar.jpg",
+    "Writeup/SKRCTF/Forensics/Forensics_WarmUp_1/README.md",
     "Writeup/SKRCTF/Web/Web_Warmup/README.md",
+    "Writeup/SKRCTF/Reverse_Engineering/Beginner_Reverse/README.md",
+    "Writeup/SKRCTF/Warm_Up/Base64/README.md",
     "README.md"
   ]
 }
