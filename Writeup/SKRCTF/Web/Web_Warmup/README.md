@@ -8,7 +8,7 @@ Going into the link provided will give us one page. Looking at the page source w
 
 # Flag
 
-![](/src/Pasted image 20210609130244.png)
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted image 20210609130244.png)
 
 
 
