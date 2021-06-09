@@ -7,10 +7,9 @@
         "id": "acaa709a5c4b2aab",
         "type": "leaf",
         "state": {
-          "type": "markdown",
+          "type": "image",
           "state": {
-            "file": "Writeup/SKRCTF/Warm_Up/Secure Shell/README.md",
-            "mode": "source"
+            "file": "src/Pasted image 20210609154455.png"
           }
         }
       }
@@ -68,7 +67,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Writeup/SKRCTF/Warm_Up/Secure Shell/README.md",
+                "file": "src/Pasted image 20210609154455.png",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,15 +87,15 @@
   },
   "active": "acaa709a5c4b2aab",
   "lastOpenFiles": [
-    "Writeup/SKRCTF/Warm_Up/Secure Shell/README.md",
-    "Writeup/SKRCTF/Warm_Up/QR/README.md",
-    "Writeup/SKRCTF/Warm_Up/Secure Shell/Untitled.md",
-    "Writeup/SKRCTF/Warm_Up/NetCat/README.md",
-    "Writeup/SKRCTF/Warm_Up/Base64/README.md",
-    "Writeup/SKRCTF/Warm_Up/NetCat/Untitled.md",
-    "README.md",
-    "Writeup/SKRCTF/Warm_Up/QR/Untitled.md",
-    "Writeup/SKRCTF/Warm_Up/Warm Up/Untitled.md",
-    "src/Pasted image 20210609131526.png"
+    "Pasted image 20210609154455.png",
+    "Writeup/SKRCTF/Web/Juggling_Clown/README.md",
+    "Writeup/SKRCTF/Web/Forgot_Password_2/README.md",
+    "Writeup/SKRCTF/Web/Juggling_Clown/Untitled.md",
+    "Writeup/SKRCTF/Web/SQL_Service/README.md",
+    "Writeup/SKRCTF/Web/My_First_SQL/README.md",
+    "Writeup/SKRCTF/Web/SQL_Service/Untitled.md",
+    "Pasted image 20210609153933.png",
+    "Writeup/SKRCTF/Web/Kuki_Cookies_2/Untitled.md",
+    "Writeup/SKRCTF/Web/Kuki Cookies/README.md"
   ]
 }
