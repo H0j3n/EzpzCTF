@@ -7,9 +7,10 @@
         "id": "acaa709a5c4b2aab",
         "type": "leaf",
         "state": {
-          "type": "image",
+          "type": "markdown",
           "state": {
-            "file": "src/Pasted image 20210609154455.png"
+            "file": "README.md",
+            "mode": "source"
           }
         }
       }
@@ -67,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "src/Pasted image 20210609154455.png",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,6 +88,8 @@
   },
   "active": "acaa709a5c4b2aab",
   "lastOpenFiles": [
+    "README.md",
+    "src/Pasted image 20210609154455.png",
     "Pasted image 20210609154455.png",
     "Writeup/SKRCTF/Web/Juggling_Clown/README.md",
     "Writeup/SKRCTF/Web/Forgot_Password_2/README.md",
@@ -94,8 +97,6 @@
     "Writeup/SKRCTF/Web/SQL_Service/README.md",
     "Writeup/SKRCTF/Web/My_First_SQL/README.md",
     "Writeup/SKRCTF/Web/SQL_Service/Untitled.md",
-    "Pasted image 20210609153933.png",
-    "Writeup/SKRCTF/Web/Kuki_Cookies_2/Untitled.md",
-    "Writeup/SKRCTF/Web/Kuki Cookies/README.md"
+    "Pasted image 20210609153933.png"
   ]
 }

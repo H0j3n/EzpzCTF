@@ -11,10 +11,9 @@ sudo apt-get install zbar-tools
 
 # CryptoGraphy
 
-### Tools
-
-### Cipher
 
 # Forensics
 
-#
+# Reverse Engineering
+
+# Web
