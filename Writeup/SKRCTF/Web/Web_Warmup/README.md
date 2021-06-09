@@ -8,6 +8,7 @@ Going into the link provided will give us one page. Looking at the page source w
 
 # Flag
 
-![[Pasted image 20210609130244.png]]
+![](Pasted image 20210609130244.png)
+
 
 
