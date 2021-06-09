@@ -6,7 +6,7 @@ Challenge Name : Juggling Clown
 
 Opening the link will get us into this page
 
-![[Pasted image 20210609155303.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210609155303.png)
 
 It receive input from us. But since the challenge name is juggling it must has related with `type juggling`, or `type coercion`.
 
@@ -20,4 +20,4 @@ Instead of comparing with string let's make it comparing with an array.
 
 # Flag
 
-![[Pasted image 20210609155510.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210609155510.png)

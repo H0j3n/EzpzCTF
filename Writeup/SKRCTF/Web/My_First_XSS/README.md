@@ -6,7 +6,7 @@ Challenge Name : My First XSS
 
 Opening the link will get us into this page
 
-![[Pasted image 20210609145414.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210609145414.png)
 
 There is a comment section. By giving a common XSS payload will get us the flag.
 
@@ -17,6 +17,6 @@ There is a comment section. By giving a common XSS payload will get us the flag.
 
 # Flag
 
-![[Pasted image 20210609145629.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210609145629.png)
 
 

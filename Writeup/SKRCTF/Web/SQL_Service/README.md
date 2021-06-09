@@ -6,11 +6,11 @@ Challenge Name : SQL Service
 
 Opening the link will get us into this page
 
-![[Pasted image 20210609154455.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210609154455.png)
 
 There is a login page. 
 
-![[Pasted image 20210609155033.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210609155033.png)
 
 We can try with simple SQL Injection payload that can be found in here [https://github.com/payloadbox/sql-injection-payload-list](https://github.com/payloadbox/sql-injection-payload-list)
 
@@ -23,7 +23,7 @@ We manage to get in and get the flag!
 
 # Flag
 
-![[Pasted image 20210609154914.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210609154914.png)
 
 
 

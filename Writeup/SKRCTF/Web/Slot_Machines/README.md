@@ -6,11 +6,11 @@ Challenge Name : Slot_Machines
 
 Open the link to the website will show us this page.
 
-![[Pasted image 20210609152738.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210609152738.png)
 
 The description of the challenge tell us to find a bug to get a reward/flag. View the `slotEngine.js`, we found out that it check if the `price` is more than `1000000000` we can get the flag.
 
-![[Pasted image 20210609153123.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210609153123.png)
 
 Let's check what is actually variable `price` . These are the lines related to `price`.  
 
@@ -29,6 +29,6 @@ document.getElementById("bets").innerHTML = "-100000000000000"
 
 # Flag
 
-![[Pasted image 20210609153809.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210609153809.png)
 
 

@@ -6,7 +6,7 @@ Challenge Name : My First SQL
 
 Opening the link will get us into this page
 
-![[Pasted image 20210609145149.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210609145149.png)
 
 Simple SQL Injection will get us bypass the login.
 
@@ -17,6 +17,6 @@ Simple SQL Injection will get us bypass the login.
 
 # Flag
 
-![[Pasted image 20210609145239.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210609145239.png)
 
 
