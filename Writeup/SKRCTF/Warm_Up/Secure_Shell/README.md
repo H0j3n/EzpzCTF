@@ -8,4 +8,4 @@ Go to the webshell in [https://skrctf.me/webshell/](https://skrctf.me/webshell/)
 
 # Flag
 
-![[Pasted image 20210609143637.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210609143637.png)

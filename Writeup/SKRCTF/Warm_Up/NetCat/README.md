@@ -13,5 +13,5 @@ We will get the flag!
 
 # Flag
 
-![[Pasted image 20210609143342.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210609143342.png)
 
