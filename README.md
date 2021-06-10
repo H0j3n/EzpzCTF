@@ -17,3 +17,9 @@ sudo apt-get install zbar-tools
 # Reverse Engineering
 
 # Web
+
+### Convert Curl to Different Language
+
+```bash
+- Go to this website https://curl.trillworks.com/
+```
