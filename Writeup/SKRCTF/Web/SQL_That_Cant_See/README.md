@@ -6,11 +6,11 @@ Challenge Name : SQL That Can't See
 
 Go back to My First SQL challenge website and try to enter `admin:admin`.
 
-![[Pasted image 20210610085914.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210610085914.png)
 
 Then look at the view source once you submit.
 
-![[Pasted image 20210610085954.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210610085954.png)
 
 There is a query from what we inputs in the view source.
 
@@ -79,4 +79,4 @@ Run the script will get us the flag!
 
 # Flag
 
-![[Pasted image 20210610102052.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210610102052.png)

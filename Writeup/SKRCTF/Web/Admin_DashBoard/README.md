@@ -6,7 +6,7 @@ Challenge Name : Admin Dashboard
 
 Opening the link will get us into this page
 
-![[Pasted image 20210609235328.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210609235328.png)
 
 We cant find anything actually unless if we can get a correct credentials. Thus checking with curl give us a different results.
 
@@ -14,7 +14,7 @@ We cant find anything actually unless if we can get a correct credentials. Thus 
  curl -k https://URL
 ```
 
-![[Pasted image 20210609235952.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210609235952.png)
 
 This is interesting as we found different source code from the first one. So the reason why we go to `login.php` because of this one line.
 
@@ -28,7 +28,7 @@ So we can see that there is a few interesting file that we can look for
 
 Going into `logs.php` , we can see that there is `server.log` file.
 
-![[Pasted image 20210610000254.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210610000254.png)
 
 Let's download the file first.
 
@@ -44,7 +44,7 @@ There is a lot of password in here, so let's filter it to just get the password 
 for i in $(cat server.log | grep -i '&password' | cut -d' ' -f7 | grep -i "password" | cut -d'&' -f2 | cut -d'=' -f2 | sort | uniq); do echo $i | urldecode;done
 ```
 
-![[Pasted image 20210610001314.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210610001314.png)
 
 Obviously the password should be between these:
 ```bash
@@ -55,7 +55,7 @@ U_W1ll_N3V3R_GU355_TH15_P@55w0rD!LOL
 
 Since we already done view `logs.php` , lets go check on `S3cr3t_P4g3.php`. 
 
-![[Pasted image 20210610001515.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210610001515.png)
 
 Trying with different passwords, we can successfully login with credential
 
@@ -65,11 +65,11 @@ admin:U_W1ll_N3V3R_GU355_TH15_P@55w0rD!LOL
 
 Going into `S3cr3t_P4g3.php` again give us this.  
 
-![[Pasted image 20210610001702.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210610001702.png)
 
 Giving the correct password will get us the flag!
 
 # Flag
 
-![[Pasted image 20210610001746.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210610001746.png)
 
