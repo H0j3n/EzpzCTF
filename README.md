@@ -219,6 +219,23 @@ Link : [https://cryptii.com/pipes/morse-code-with-emojis](https://cryptii.com/pi
 
 # Reverse Engineering
 
+### GDB 
+
+```bash
+# Install
+sudo apt-get install gdb
+
+# GEF
+https://github.com/hugsy/gef
+
+# Peda
+https://github.com/longld/peda
+
+
+# References
+http://www.gdbtutorial.com/tutorial/how-install-gdb
+```
+
 # Web
 
 ### Practices
