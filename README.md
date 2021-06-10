@@ -75,11 +75,11 @@ https://scwf.dima.ninja/
 
 1. **Old Krytan Language (Guild Wars2)**
 
-![[Pasted image 20210610103129.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210610103129.png)
 
 2. **Predator Language**
 
-![[Pasted image 20210610103153.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210610103153.png)
 
 3. **Malbolge**
 
@@ -139,7 +139,7 @@ for key in itertools.product(string.ascii_lowercase,repeat=5):
 
 Link : [https://asecuritysite.com/encryption/ferdecode](https://asecuritysite.com/encryption/ferdecode)
 
-![[Pasted image 20210610103707.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210610103707.png)
 
 8. **Zodiac Killer**
 
@@ -148,7 +148,7 @@ Link :
 - [http://www.zodiackillerciphers.com/](http://www.zodiackillerciphers.com/)
 - [https://github.com/H0j3n/Zodiac-Z340](https://github.com/H0j3n/Zodiac-Z340)
 
-![[Pasted image 20210610103852.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210610103852.png)
 
 9. **Reverse Fuck**
 
@@ -176,7 +176,7 @@ Link : [https://pictureworthsthousandwords.appspot.com/](https://pictureworthsth
 
 Link : [http://bobcodes.weebly.com/imb.html](http://bobcodes.weebly.com/imb.html)
 
-![[Pasted image 20210610104150.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210610104150.png)
 
 13. **Book Cipher**
 
