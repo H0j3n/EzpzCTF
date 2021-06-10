@@ -7,20 +7,10 @@
         "id": "acaa709a5c4b2aab",
         "type": "leaf",
         "state": {
-          "type": "image",
-          "state": {
-            "file": "src/Pasted image 20210610104150.png"
-          }
-        }
-      },
-      {
-        "id": "e5b6177e2fdde7c4",
-        "type": "leaf",
-        "state": {
           "type": "markdown",
           "state": {
-            "file": "Writeup/SKRCTF/Web/SQL_That_Cant_See/README.md",
-            "mode": "preview"
+            "file": "Writeup/Websec.fr/Web/Level01/README.md",
+            "mode": "source"
           }
         }
       }
@@ -78,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "src/Pasted image 20210610104150.png",
+                "file": "Writeup/Websec.fr/Web/Level01/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -98,15 +88,15 @@
   },
   "active": "acaa709a5c4b2aab",
   "lastOpenFiles": [
-    "Pasted image 20210610104150.png",
+    "Writeup/Websec.fr/Web/Level01/Untitled.md",
     "README.md",
-    "Pasted image 20210609235328.png",
+    "src/Pasted image 20210610104150.png",
     "Writeup/SKRCTF/Web/SQL_That_Cant_See/README.md",
+    "Pasted image 20210610104150.png",
+    "Pasted image 20210609235328.png",
     "Writeup/SKRCTF/Web/Admin_DashBoard/README.md",
     "Writeup/SKRCTF/Web/SQL_That_Cant_See/Untitled.md",
     "Writeup/SKRCTF/Web/Forgot_Password/README.md",
-    "Writeup/SKRCTF/Web/Admin_DashBoard/Untitled.md",
-    "src/Pasted image 20210609154455.png",
-    "Pasted image 20210609154455.png"
+    "Writeup/SKRCTF/Web/Admin_DashBoard/Untitled.md"
   ]
 }

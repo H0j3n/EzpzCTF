@@ -221,8 +221,15 @@ Link : [https://cryptii.com/pipes/morse-code-with-emojis](https://cryptii.com/pi
 
 # Web
 
+### Practices
+
+```bash
+http://websec.fr/
+```
+
 ### Convert Curl to Different Language
 
 ```bash
 - Go to this website https://curl.trillworks.com/
 ```
+
