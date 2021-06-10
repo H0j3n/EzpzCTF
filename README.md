@@ -11,6 +11,13 @@ sudo apt-get install zbar-tools
 
 # CryptoGraphy
 
+### Online Tools
+
+```bash
+https://gchq.github.io/CyberChef/
+https://scwf.dima.ninja/
+```
+
 ### RSACtftool
 
 ```bash
@@ -64,12 +71,7 @@ https://github.com/lmammino/jwt-cracker
 jwt-cracker "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ" "abcdefghijklmnopqrstuwxyz" 6
 ```
 
-### Online Tools
 
-```bash
-https://gchq.github.io/CyberChef/
-https://scwf.dima.ninja/
-```
 
 ### Cipher/Encode/Hash
 
@@ -217,6 +219,12 @@ Link : [https://cryptii.com/pipes/morse-code-with-emojis](https://cryptii.com/pi
 
 # Forensics
 
+### Online Tools
+
+```bash
+https://packettotal.com/
+```
+
 # Reverse Engineering
 
 ### GDB 
@@ -231,9 +239,14 @@ https://github.com/hugsy/gef
 # Peda
 https://github.com/longld/peda
 
+# Commands
+# Examine (4-byte) word 
+x/w $rbp-0x4
 
 # References
 http://www.gdbtutorial.com/tutorial/how-install-gdb
+https://gist.github.com/rkubik/b96c23bd8ed58333de37f2b8cd052c30
+http://csapp.cs.cmu.edu/3e/docs/gdbnotes-x86-64.pdf
 ```
 
 # Web
@@ -250,3 +263,11 @@ http://websec.fr/
 - Go to this website https://curl.trillworks.com/
 ```
 
+# Binary Exploitation
+
+### Payload
+
+```bash
+for i in {1..50};do python3 -c "print('a' * $i)" | ./auth;done
+for i in {1..50};do python -c "print('a' * $i)" | ./auth;done
+```
