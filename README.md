@@ -240,8 +240,8 @@ https://github.com/hugsy/gef
 https://github.com/longld/peda
 
 # Commands
-# Examine (4-byte) word 
 x/w $rbp-0x4
+run auth2 < input.txt
 
 # References
 http://www.gdbtutorial.com/tutorial/how-install-gdb
@@ -270,4 +270,7 @@ http://websec.fr/
 ```bash
 for i in {1..50};do python3 -c "print('a' * $i)" | ./auth;done
 for i in {1..50};do python -c "print('a' * $i)" | ./auth;done
+for i in {1..10};do python3 -c "print('\nadmin'+('\x00' * $i)+'admin')" | ./auth2;done
+for i in {1..10};do python2 -c "print('\nadmin'+('\x00' * $i)+'admin')" | ./auth2;done
+echo -e "\naaaaaaaaaaaaaaa" > input.txt
 ```
