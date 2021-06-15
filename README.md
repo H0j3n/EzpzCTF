@@ -225,6 +225,33 @@ Link : [https://cryptii.com/pipes/morse-code-with-emojis](https://cryptii.com/pi
 https://packettotal.com/
 ```
 
+### Tshark
+
+```bash
+# Install
+sudo apt install tshark
+
+# Commands
+tshark -r dump.pcap
+```
+
+### Tcpdump
+
+```bash
+# Commands
+tcpdump -r dump.pcap
+```
+
+### PCAP File
+
+```bash
+# DNS
+- If its related to exilftration you can try check this out
+	* https://blog.stalkr.net/2010/10/hacklu-ctf-challenge-9-bottle-writeup.html
+	* https://github.com/yarrick/iodine
+	* https://gist.github.com/SwissKid/438fbcf8a472be62ba4a412e37dc2d27
+```
+
 # Reverse Engineering
 
 ### GDB 
