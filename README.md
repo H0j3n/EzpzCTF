@@ -252,6 +252,23 @@ tcpdump -r dump.pcap
 	* https://gist.github.com/SwissKid/438fbcf8a472be62ba4a412e37dc2d27
 ```
 
+### GuestMount
+
+```bash
+# Install
+sudo apt install libguestfs-tools -y
+
+# Commands
+sudo mkdir /mnt/vhd
+guestmount --add file.vhd --inspector --ro -v /mnt/vhd
+guestunmount mnt
+
+# If windows
+cd /Windows/System32/config
+cp SAM SYSTEM /<localDir>
+secretsdump.py -sam SAM -system SYSTEM local
+```
+
 # Reverse Engineering
 
 ### GDB 
@@ -301,3 +318,7 @@ for i in {1..10};do python3 -c "print('\nadmin'+('\x00' * $i)+'admin')" | ./auth
 for i in {1..10};do python2 -c "print('\nadmin'+('\x00' * $i)+'admin')" | ./auth2;done
 echo -e "\naaaaaaaaaaaaaaa" > input.txt
 ```
+
+# References
+- http://www.wechall.net/challs
+- https://ctftime.org/
