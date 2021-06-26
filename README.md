@@ -71,7 +71,32 @@ https://github.com/lmammino/jwt-cracker
 jwt-cracker "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ" "abcdefghijklmnopqrstuwxyz" 6
 ```
 
+### AES Encrypt/Decrypt (Python)
 
+```python3
+from Crypto.Cipher import AES
+from base64 import b64decode
+from base64 import b64encode
+
+key = b64decode(b"2OVIftcUZNGlIyb9ezz+8fNU6eScakdfrtJaiHz25Mw=")
+iv = b64decode(b"ff6XdYMDM7e5K23RrcsFZQ==")
+while True:
+	options = input("[+] Enter (1 - Encrypt, 2 - Decrypt) : ")
+	print()
+	if options == "1":
+		print("====Encrypting====")
+		texts = input("Enter Text : ").encode()
+		aes = AES.new(key, AES.MODE_CBC, iv)
+		print(b64encode(aes.encrypt(texts+b"\0"*(16-len(texts)))))
+	else:
+		print("====Decrypting====")
+		texts = input("Enter Encrypted : ").encode()
+		aes = AES.new(key, AES.MODE_CBC, iv)
+		decoded = b64decode(texts)
+		decrypted = aes.decrypt(decoded)
+		print(decrypted.decode())
+	print()
+```
 
 ### Cipher/Encode/Hash
 
