@@ -7,10 +7,9 @@
         "id": "acaa709a5c4b2aab",
         "type": "leaf",
         "state": {
-          "type": "markdown",
+          "type": "image",
           "state": {
-            "file": "Writeup/SKRCTF/Programming/Layers_Of_101/README.md",
-            "mode": "source"
+            "file": "src/Pasted image 20210626211417.png"
           }
         }
       },
@@ -79,7 +78,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Writeup/SKRCTF/Programming/Layers_Of_101/README.md",
+                "file": "src/Pasted image 20210626211417.png",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,6 +98,7 @@
   },
   "active": "acaa709a5c4b2aab",
   "lastOpenFiles": [
+    "Pasted image 20210626211417.png",
     "Writeup/SKRCTF/Programming/Layers_Of_101/README.md",
     "README.md",
     "Writeup/SKRCTF/Binary_Exploitation/Simple_Overflow/README.md",
@@ -107,7 +107,6 @@
     "Pasted image 20210611164539.png",
     "Writeup/SKRCTF/Binary_Exploitation/Overflow_Me/README.md",
     "Writeup/SKRCTF/Binary_Exploitation/Auth_Me_2/README.md",
-    "Writeup/SKRCTF/Binary_Exploitation/Auth_Me_1/README.md",
-    "Writeup/SKRCTF/Binary_Exploitation/Advance_Overflow/README.md"
+    "Writeup/SKRCTF/Binary_Exploitation/Auth_Me_1/README.md"
   ]
 }
