@@ -7,6 +7,9 @@
 ```code
 # Install
 sudo apt-get install zbar-tools
+
+# Commands
+zbarimg output.png
 ```
 
 # CryptoGraphy
@@ -292,6 +295,20 @@ guestunmount mnt
 cd /Windows/System32/config
 cp SAM SYSTEM /<localDir>
 secretsdump.py -sam SAM -system SYSTEM local
+```
+
+
+### PCRT
+
+```bash
+# About
+- Fix/Repair PNG image file
+
+# Downloads
+https://github.com/sherlly/PCRT.git
+
+# Commands
+python PCRT.py -i /pathto/output.png
 ```
 
 # Reverse Engineering
