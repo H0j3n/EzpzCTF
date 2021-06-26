@@ -9,7 +9,7 @@ First of all we need to download the file first:
 
 The content of the file itself really hurt my eyes haha
 
-![[Pasted image 20210626211417.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210626211417.png)
 
 If we look closely it similar to 8 bit-binary . Example :  `000000110`. Using this python script we can differentiate and see how we can divide the strings as 8 bit-binary.
 
@@ -24,7 +24,7 @@ for i in range(0,len(enc_1),8):
 
 ```
 
-![[Pasted image 20210626212414.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210626212414.png)
 
 From the output above we can see that there is a pattern which one row with value `1` in index 3 and another row with `0` in index 3.  From the top 1 until the first `1` value we encounter almost the same as 8 bit-binary. Maybe we can try get with index 3 value first?
 
@@ -46,7 +46,7 @@ for i in range(0,len(partA),8):
         k += 8
 ```
 
-![[Pasted image 20210626213324.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210626213324.png)
 
 From the output above we can see that there is a pattern which one row with value `1` in index 4 and another row with `0` in index 4. We can try the same technique that we already implement and lets see if we can get something .
 
@@ -74,7 +74,7 @@ for i in range(0,len(partB),8):
         k += 8
 ```
 
-![[Pasted image 20210626214204.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210626214204.png)
 
 This time it doesn't look like have any patterns. Might be that we can directly convert it from binary and combine it. I found a method that we can implement and you can try read it in here:
 - [https://stackoverflow.com/questions/32675679/convert-binary-string-to-bytearray-in-python-3](https://stackoverflow.com/questions/32675679/convert-binary-string-to-bytearray-in-python-3)
@@ -103,7 +103,7 @@ print(file_found)
 
 Wow! There is PNG there!!
 
-![[Pasted image 20210626214531.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210626214531.png)
 
 Let's try write it into one image file from this bytes.
 
@@ -134,7 +134,7 @@ f.close()
 
 Okay nice we can see that it is a PNG file but we can't open it?
 
-![[Pasted image 20210626215351.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210626215351.png)
 
 Luckily we have this tool that can try fix/repair our PNG image.
 - [https://github.com/sherlly/PCRT](https://github.com/sherlly/PCRT)
@@ -143,11 +143,11 @@ Luckily we have this tool that can try fix/repair our PNG image.
 python PCRT.py -i /pathto/output.png
 ```
 
-![[Pasted image 20210626215751.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210626215751.png)
 
 Okay thats a good sign! Let's try open it!
 
-![[Pasted image 20210626215838.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210626215838.png)
 
 We got like really random kind of QR Code. We might be able to scan if we lucky xD. But let's use another tool which could help us identify for any data in here.
 
@@ -159,7 +159,7 @@ sudo apt-get install zbar-tools
 zbarimg output.png
 ```
 
-![[Pasted image 20210626220057.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210626220057.png)
 
 Nice! We are almost there! Let's save this as `output.txt` and run our previous script to get to the next step.
 
@@ -182,4 +182,4 @@ We get the flag as we manage to decode the last layer!
 
 # Flag
 
-![[Pasted image 20210626220600.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210626220600.png)
