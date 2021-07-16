@@ -7,20 +7,10 @@
         "id": "acaa709a5c4b2aab",
         "type": "leaf",
         "state": {
-          "type": "image",
-          "state": {
-            "file": "src/Pasted image 20210630181648.png"
-          }
-        }
-      },
-      {
-        "id": "691cf8bd176df728",
-        "type": "leaf",
-        "state": {
           "type": "markdown",
           "state": {
-            "file": "Writeup/SKRCTF/Binary_Exploitation/Guess_The_Number/README.md",
-            "mode": "preview"
+            "file": "RE/Zh3r0_CTF_V2_2021/Eat_Sleep_Trace_Repeat/README.md",
+            "mode": "source"
           }
         }
       }
@@ -78,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "src/Pasted image 20210630181648.png",
+                "file": "RE/Zh3r0_CTF_V2_2021/Eat_Sleep_Trace_Repeat/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -98,15 +88,15 @@
   },
   "active": "acaa709a5c4b2aab",
   "lastOpenFiles": [
-    "Pasted image 20210630181648.png",
-    "Writeup/SKRCTF/Binary_Exploitation/Guess_The_Number/README.md",
+    "RE/Zh3r0_CTF_V2_2021/Eat_Sleep_Trace_Repeat/README.md",
+    "Writeup/SKRCTF/Reverse_Engineering/Beginner_Reverse/README.md",
     "Writeup/SKRCTF/Binary_Exploitation/Format_String/README.md",
-    "Writeup/SKRCTF/Binary_Exploitation/Auth_Me_2/README.md",
-    "Writeup/SKRCTF/Binary_Exploitation/Auth_Me_1/README.md",
-    "Writeup/SKRCTF/Binary_Exploitation/Advance_Overflow/README.md",
-    "README.md",
-    "Writeup/SKRCTF/Binary_Exploitation/Overflow_Me/README.md",
-    "Writeup/SKRCTF/Binary_Exploitation/Simple_Overflow/README.md",
-    "src/Pasted image 20210626211417.png"
+    "Untitled.md",
+    "Pasted image 20210630200722.png",
+    "Pasted image 20210630212236.png",
+    "Pasted image 20210630200854.png",
+    "Writeup/Websec.fr/Web/Level01/README.md",
+    "Writeup/Websec.fr/Web/Level01/Pasted image 20210610113437.png",
+    "README.md"
   ]
 }

