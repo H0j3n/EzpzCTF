@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "RE/Zh3r0_CTF_V2_2021/Eat_Sleep_Trace_Repeat/README.md",
+            "file": "README.md",
             "mode": "source"
           }
         }
@@ -52,7 +52,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "84489068cebf5eb0",
@@ -68,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "RE/Zh3r0_CTF_V2_2021/Eat_Sleep_Trace_Repeat/README.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,15 +89,15 @@
   },
   "active": "acaa709a5c4b2aab",
   "lastOpenFiles": [
+    "README.md",
     "RE/Zh3r0_CTF_V2_2021/Eat_Sleep_Trace_Repeat/README.md",
+    "Pasted image 20210630200722.png",
     "Writeup/SKRCTF/Reverse_Engineering/Beginner_Reverse/README.md",
     "Writeup/SKRCTF/Binary_Exploitation/Format_String/README.md",
     "Untitled.md",
-    "Pasted image 20210630200722.png",
     "Pasted image 20210630212236.png",
     "Pasted image 20210630200854.png",
     "Writeup/Websec.fr/Web/Level01/README.md",
-    "Writeup/Websec.fr/Web/Level01/Pasted image 20210610113437.png",
-    "README.md"
+    "Writeup/Websec.fr/Web/Level01/Pasted image 20210610113437.png"
   ]
 }

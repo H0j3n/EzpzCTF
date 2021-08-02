@@ -21,6 +21,13 @@ https://gchq.github.io/CyberChef/
 https://scwf.dima.ninja/
 ```
 
+### Cryptography Writeup
+
+```bash
+=> Writeup 
+$ https://github.com/rkm0959/Cryptography_Writeups
+```
+
 ### RSACtftool
 
 ```bash
@@ -251,6 +258,8 @@ Link : [https://cryptii.com/pipes/morse-code-with-emojis](https://cryptii.com/pi
 
 ```bash
 https://packettotal.com/
+https://www.hybrid-analysis.com/
+https://iris-h.services
 ```
 
 ### Tshark
@@ -297,6 +306,15 @@ cp SAM SYSTEM /<localDir>
 secretsdump.py -sam SAM -system SYSTEM local
 ```
 
+### Linux Memory Dump
+
+```bash
+# Command
+python vol.py -f dump.mem --profile=LinuxUbuntu_142x64 linux_bash
+
+# References
+https://heisenberk.github.io/Profile-Memory-Dump/
+```
 
 ### PCRT
 
@@ -309,6 +327,31 @@ https://github.com/sherlly/PCRT.git
 
 # Commands
 python PCRT.py -i /pathto/output.png
+```
+
+### Oletools
+
+```bash
+# Download
+https://github.com/decalage2/oletools.git
+
+### olevba.py
+python3 olevba.py -a malware.xls --reveal
+
+### oledump.py
+python3 ../oledump.py malware.docm -v -s A3 > output1
+
+# References
+https://spreadsecurity.github.io/2016/08/14/macro-malware-analysis.html
+```
+
+### Volatility
+
+```bash
+# Install
+sudo apt-get install volatility
+
+# Commands
 ```
 
 # Reverse Engineering
@@ -424,6 +467,16 @@ echo 'AAAA-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-' | ./format
 - https://resources.infosecinstitute.com/topic/how-to-exploit-format-string-vulnerabilities/
 - https://owasp.org/www-community/attacks/Format_string_attack
 ```
+
+# OSINT
+
+### OSINT Online Tools
+
+```bash
+=> Search by Image
+$ https://pimeyes.com/en
+```
+
 # References
 - http://www.wechall.net/challs
 - https://ctftime.org/
