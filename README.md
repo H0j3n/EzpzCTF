@@ -46,6 +46,23 @@ python3 RsaCtfTool.py -n 712312... -e 65537 --uncipher 125123...
 python3 RsaCtfTool.py --publickey public.pem --private > private.key
 ```
 
+### Rsatool
+
+```bash
+# Download
+https://github.com/ius/rsatool
+sudo apt install libmpc-dev
+sudo apt install python3-pip
+sudo python3 -m pip install gmpy2
+
+=> Commands
+$ ./rsatool.py -p 3133337 -q 254783260649... -o priv.key
+
+=> References
+$ https://wishingstarmoye.com/ctf/rsatool
+
+```
+
 ### GPG/PGP
 
 ```bash
@@ -58,7 +75,25 @@ gpg --decrypt backup.pgp
 
 ```bash
 # Commands
-openssl rsautl -decrypt -inkey private.key -in note2_encrypted.txt -out note2.txt
+openssl rsautl -decrypt -in flag.enc -inkey priv.key -out plaint.txt
+	-> input from base64
+openssl rsa -in public.pem -text -inform PEM -pubin
+	-> Convert modulus to hex
+	-> python -c "print int('<hex>',16)"
+
+# Found
+grep -v - public.pem | tr -d '\n' | base64 -d | openssl asn1parse -inform DER -i
+
+```
+
+### Lynx
+
+```bash
+# Install
+sudo apt install lynx
+
+# Commands
+lynx --dump http://www.factordb.com/index.php?query=267655291201323217581766648921840701061 | head | tail -n 2
 ```
 
 ### PadBuster
@@ -260,6 +295,7 @@ Link : [https://cryptii.com/pipes/morse-code-with-emojis](https://cryptii.com/pi
 https://packettotal.com/
 https://www.hybrid-analysis.com/
 https://iris-h.services
+https://f00l.de/hacking/pcapfix.php
 ```
 
 ### Tshark
@@ -282,11 +318,20 @@ tcpdump -r dump.pcap
 ### PCAP File
 
 ```bash
-# DNS
-- If its related to exilftration you can try check this out
+=> DNS
+$ If its related to exilftration you can try check this out
 	* https://blog.stalkr.net/2010/10/hacklu-ctf-challenge-9-bottle-writeup.html
 	* https://github.com/yarrick/iodine
 	* https://gist.github.com/SwissKid/438fbcf8a472be62ba4a412e37dc2d27
+
+=> USB
+$ USBMS -> tshark -r data.pcapng -T fields -e usb.capdata > flag
+	-> cat flag | tr "\n" " " | sed 's/ //g' > realflag
+	-> xxd -r -p realflag flag.bin
+
+$ https://teamrocketist.github.io/2017/08/29/Forensics-Hackit-2017-USB-ducker/
+
+
 ```
 
 ### GuestMount
@@ -352,6 +397,16 @@ https://spreadsecurity.github.io/2016/08/14/macro-malware-analysis.html
 sudo apt-get install volatility
 
 # Commands
+```
+
+### Testdisk
+
+```bash
+# Install
+sudo apt install testdisk
+
+# Commands
+testdisk file.img
 ```
 
 # Reverse Engineering
