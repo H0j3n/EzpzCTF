@@ -441,6 +441,8 @@ x/w $rbp-0x4
 x/2b 0x00000000000072a
 x/2x 0x00000000000072a
 run auth2 < input.txt
+pattern_create 200
+pattern_offset AwAA
 
 # References
 http://www.gdbtutorial.com/tutorial/how-install-gdb
@@ -458,8 +460,33 @@ https://github.com/radareorg/radare2.git
 make
 sudo make install
 
+# Commands
+r2 -w ./file
+r2 ./file
+aaa
+V 
+v
+s 0x401ffe
+pd 1
+wao jz
+q!
+dc
+afl
+pdf @main
+db 0x72
+dc
+dr
+px @eax
+
+
+# If encounter problem
+sudo apt install build-essential cmake meson libzip-dev zlib1g-dev qt5-default libqt5svg5-dev qttools5-dev qttools5-dev qttools5-dev-tools libmagic-dev libgvc6 libgraphviz-dev libkf5syntaxhighlighting-dev python3-setuptools liblz4-dev libcapstone-dev libssl-dev libxxhash-dev libuv1-dev
+sudo apt update && sudo apt upgrade
+
 # References
 https://book.rada.re/
+https://software.intel.com/content/www/us/en/develop/download/intel-64-and-ia-32-architectures-sdm-combined-volumes-1-2a-2b-2c-2d-3a-3b-3c-3d-and-4.html
+https://r2wiki.readthedocs.io/en/latest/home/ctf-solving-using-radare2/
 ```
 
 ### Uncompyle6
