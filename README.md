@@ -298,6 +298,17 @@ https://iris-h.services
 https://f00l.de/hacking/pcapfix.php
 ```
 
+### List of File Signatures
+
+```bash
+# Found
+.pyz/.pyc
+	-> 50 59 5A (PYZ)
+
+# References
+https://en.wikipedia.org/wiki/List_of_file_signatures
+```
+
 ### Tshark
 
 ```bash
@@ -441,6 +452,27 @@ pip install uncompyle6
 
 # Command
 uncompyle6 untitled.pyc
+```
+
+### PyInstaller Extractor
+
+```bash
+# Download
+https://github.com/extremecoders-re/pyinstxtractor.git
+
+# Command
+python3 pyinstxtractor.py file.exe
+python3 pyinstxtractor.py file
+```
+
+### Upx
+
+```bash
+# Install
+sudo apt install upx
+
+# Commands
+upx -d file
 ```
 
 # Web
