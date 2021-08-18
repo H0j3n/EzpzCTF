@@ -17,7 +17,7 @@ tar -xvf boo.tar.gz.out
 binwalk boo
 ```
 
-![[Pasted image 20210818104014.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210818104014.png)
 
 - Unpacked using upx commands
 
@@ -25,7 +25,7 @@ binwalk boo
 upx -d boo
 ```
 
-![[Pasted image 20210818104051.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210818104051.png)
 
 - Found out a lot of python on the binary but cannot found the header "50 59 5A" (PYZ). Looking back at the packed binary found the header.
 
@@ -33,7 +33,7 @@ upx -d boo
 xxd boo.\~ | grep -i PYZ
 ```
 
-![[Pasted image 20210818105758.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210818105758.png)
 
 - Extract using **pyinstxtractor.py**
 
@@ -45,13 +45,13 @@ https://github.com/extremecoders-re/pyinstxtractor.git
 python3 pyinstxtractor.py boo
 ```
 
-![[Pasted image 20210818115710.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210818115710.png)
 
 - Read boo.pyc and get the flag!
 
 # Flag
 
-![[Pasted image 20210818115822.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210818115822.png)
 
 # References
 
