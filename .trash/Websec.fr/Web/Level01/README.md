@@ -6,7 +6,7 @@ Challenge Name : Level01
 
 Opening the link will give us this
 
-![[Pasted image 20210610113437.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210610113437.png)
 
 # Flag
 
