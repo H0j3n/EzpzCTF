@@ -21,6 +21,13 @@ https://gchq.github.io/CyberChef/
 https://scwf.dima.ninja/
 ```
 
+### Cryptography Writeup
+
+```bash
+=> Writeup 
+$ https://github.com/rkm0959/Cryptography_Writeups
+```
+
 ### RSACtftool
 
 ```bash
@@ -39,6 +46,23 @@ python3 RsaCtfTool.py -n 712312... -e 65537 --uncipher 125123...
 python3 RsaCtfTool.py --publickey public.pem --private > private.key
 ```
 
+### Rsatool
+
+```bash
+# Download
+https://github.com/ius/rsatool
+sudo apt install libmpc-dev
+sudo apt install python3-pip
+sudo python3 -m pip install gmpy2
+
+=> Commands
+$ ./rsatool.py -p 3133337 -q 254783260649... -o priv.key
+
+=> References
+$ https://wishingstarmoye.com/ctf/rsatool
+
+```
+
 ### GPG/PGP
 
 ```bash
@@ -51,7 +75,25 @@ gpg --decrypt backup.pgp
 
 ```bash
 # Commands
-openssl rsautl -decrypt -inkey private.key -in note2_encrypted.txt -out note2.txt
+openssl rsautl -decrypt -in flag.enc -inkey priv.key -out plaint.txt
+	-> input from base64
+openssl rsa -in public.pem -text -inform PEM -pubin
+	-> Convert modulus to hex
+	-> python -c "print int('<hex>',16)"
+
+# Found
+grep -v - public.pem | tr -d '\n' | base64 -d | openssl asn1parse -inform DER -i
+
+```
+
+### Lynx
+
+```bash
+# Install
+sudo apt install lynx
+
+# Commands
+lynx --dump http://www.factordb.com/index.php?query=267655291201323217581766648921840701061 | head | tail -n 2
 ```
 
 ### PadBuster
@@ -251,6 +293,9 @@ Link : [https://cryptii.com/pipes/morse-code-with-emojis](https://cryptii.com/pi
 
 ```bash
 https://packettotal.com/
+https://www.hybrid-analysis.com/
+https://iris-h.services
+https://f00l.de/hacking/pcapfix.php
 ```
 
 ### Tshark
@@ -273,11 +318,20 @@ tcpdump -r dump.pcap
 ### PCAP File
 
 ```bash
-# DNS
-- If its related to exilftration you can try check this out
+=> DNS
+$ If its related to exilftration you can try check this out
 	* https://blog.stalkr.net/2010/10/hacklu-ctf-challenge-9-bottle-writeup.html
 	* https://github.com/yarrick/iodine
 	* https://gist.github.com/SwissKid/438fbcf8a472be62ba4a412e37dc2d27
+
+=> USB
+$ USBMS -> tshark -r data.pcapng -T fields -e usb.capdata > flag
+	-> cat flag | tr "\n" " " | sed 's/ //g' > realflag
+	-> xxd -r -p realflag flag.bin
+
+$ https://teamrocketist.github.io/2017/08/29/Forensics-Hackit-2017-USB-ducker/
+
+
 ```
 
 ### GuestMount
@@ -297,6 +351,15 @@ cp SAM SYSTEM /<localDir>
 secretsdump.py -sam SAM -system SYSTEM local
 ```
 
+### Linux Memory Dump
+
+```bash
+# Command
+python vol.py -f dump.mem --profile=LinuxUbuntu_142x64 linux_bash
+
+# References
+https://heisenberk.github.io/Profile-Memory-Dump/
+```
 
 ### PCRT
 
@@ -309,6 +372,41 @@ https://github.com/sherlly/PCRT.git
 
 # Commands
 python PCRT.py -i /pathto/output.png
+```
+
+### Oletools
+
+```bash
+# Download
+https://github.com/decalage2/oletools.git
+
+### olevba.py
+python3 olevba.py -a malware.xls --reveal
+
+### oledump.py
+python3 ../oledump.py malware.docm -v -s A3 > output1
+
+# References
+https://spreadsecurity.github.io/2016/08/14/macro-malware-analysis.html
+```
+
+### Volatility
+
+```bash
+# Install
+sudo apt-get install volatility
+
+# Commands
+```
+
+### Testdisk
+
+```bash
+# Install
+sudo apt install testdisk
+
+# Commands
+testdisk file.img
 ```
 
 # Reverse Engineering
@@ -400,6 +498,8 @@ for i in {1..50};do echo "Length Payload : " $i;echo;python3 -c "print('a' * $i)
 for i in {1..10};do python3 -c "print('\nadmin'+('\x00' * $i)+'admin')" | ./auth2;done
 for i in {1..10};do python2 -c "print('\nadmin'+('\x00' * $i)+'admin')" | ./auth2;done
 echo -e "\naaaaaaaaaaaaaaa" > input.txt
+python -c "print 'A' * 140+'\xef\xbe\xad\xde'+'AAAAAAAA'+'\x29\x52\x55\x55\x55\x55'" | nc 127.0.0.1 1337
+python -c "print '/bin/cat\${IFS}*\n'+'A'*20+'\xe0\x83\x04\x08'+'CCCC'+'\x34\xa0\x04\x08'" | nc 127.0.0.1 1337
 ```
 
 ### Format String
@@ -424,6 +524,16 @@ echo 'AAAA-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-' | ./format
 - https://resources.infosecinstitute.com/topic/how-to-exploit-format-string-vulnerabilities/
 - https://owasp.org/www-community/attacks/Format_string_attack
 ```
+
+# OSINT
+
+### OSINT Online Tools
+
+```bash
+=> Search by Image
+$ https://pimeyes.com/en
+```
+
 # References
 - http://www.wechall.net/challs
 - https://ctftime.org/
