@@ -480,11 +480,24 @@ upx -d file
 ### OllyDBG
 
 ```bash
-# Command
+# Download
+
+# Search Strings
+Right Click + Search for + All referenced text strings
+
+# View Call Stack
+Alt-K
+
+# Go to Address
+Ctrl + G
+
+# View Breakpoints
+Ctrl + B
 
 # References
 https://resources.infosecinstitute.com/topic/reverse-engineering-ollydbg/
 https://github.com/cybertechniques/site/blob/master/analysis_tools/ollydbg/index.md
+http://www.ollydbg.de/quickst.htm
 ```
 
 ### CFF Explorer
