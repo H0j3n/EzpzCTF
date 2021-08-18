@@ -5,7 +5,7 @@ Challenge Name : Eat Sleep Trace Repeat
 # Solution
 This is my first time approaching asm challenge and will try figure out with the helps of the reference we have. If we read the **trace.txt** it consists of duplicate address .
 
-![[Pasted image 20210716094206.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210716094206.png)
 
 We can try to sort and take the unique value from **trace.txt**.
 
