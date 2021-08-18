@@ -302,8 +302,10 @@ https://f00l.de/hacking/pcapfix.php
 
 ```bash
 # Found
-.pyz/.pyc
-	-> 50 59 5A (PYZ)
+50 59 5A (PYZ)
+	-> .pyz,.pyc
+4D 5A (MZ)
+	-> .exe,.scr,.sys,.dll,.fon,.cpl,.iec,.ime,.rs,.tsp,.mz
 
 # References
 https://en.wikipedia.org/wiki/List_of_file_signatures
@@ -473,6 +475,26 @@ sudo apt install upx
 
 # Commands
 upx -d file
+```
+
+### OllyDBG
+
+```bash
+# Command
+
+# References
+https://resources.infosecinstitute.com/topic/reverse-engineering-ollydbg/
+https://github.com/cybertechniques/site/blob/master/analysis_tools/ollydbg/index.md
+```
+
+### CFF Explorer
+
+```bash
+# Download
+http://www.ntcore.com/files/ExplorerSuite.exe
+
+# References
+https://github.com/cybertechniques/site/blob/master/analysis_tools/cff-explorer/index.md
 ```
 
 # Web
