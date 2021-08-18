@@ -12,7 +12,7 @@ Challenge Name : Reversing-2
 
 ![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210818162556.png)
 
-- View on the right bottom and look for the sentence we have .
+- View on the Stack and look for the sentence we have .
 
 ![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210818162848.png)
 

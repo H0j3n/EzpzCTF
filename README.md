@@ -438,12 +438,28 @@ https://github.com/longld/peda
 
 # Commands
 x/w $rbp-0x4
+x/2b 0x00000000000072a
+x/2x 0x00000000000072a
 run auth2 < input.txt
 
 # References
 http://www.gdbtutorial.com/tutorial/how-install-gdb
 https://gist.github.com/rkubik/b96c23bd8ed58333de37f2b8cd052c30
 http://csapp.cs.cmu.edu/3e/docs/gdbnotes-x86-64.pdf
+https://software.intel.com/content/www/us/en/develop/download/intel-64-and-ia-32-architectures-sdm-combined-volumes-1-2a-2b-2c-2d-3a-3b-3c-3d-and-4.html
+```
+
+### Radare2
+
+```bash
+# Download & Install 
+https://github.com/radareorg/radare2.git
+./configure
+make
+sudo make install
+
+# References
+https://book.rada.re/
 ```
 
 ### Uncompyle6
@@ -508,6 +524,12 @@ http://www.ntcore.com/files/ExplorerSuite.exe
 
 # References
 https://github.com/cybertechniques/site/blob/master/analysis_tools/cff-explorer/index.md
+```
+
+### CheatSheet
+
+```bash
+1. https://github.com/Kennyslaboratory/Reverse-Engineering-Cheatsheet
 ```
 
 # Web
