@@ -177,6 +177,12 @@ JFJAM{j@3$@y_j!wo3y}
 ```bash
 # Example
 aGVsbG8=
+
+# List of Characters
+ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789/=
+
+# Modified List of Characters
+
 ```
 
 5. **Base85**
@@ -443,12 +449,14 @@ x/2x 0x00000000000072a
 run auth2 < input.txt
 pattern_create 200
 pattern_offset AwAA
+r < <(python -c "print 'a' * 188 + '\x0d\xd0\xde\xc0'")
 
 # References
 http://www.gdbtutorial.com/tutorial/how-install-gdb
 https://gist.github.com/rkubik/b96c23bd8ed58333de37f2b8cd052c30
 http://csapp.cs.cmu.edu/3e/docs/gdbnotes-x86-64.pdf
 https://software.intel.com/content/www/us/en/develop/download/intel-64-and-ia-32-architectures-sdm-combined-volumes-1-2a-2b-2c-2d-3a-3b-3c-3d-and-4.html
+https://suchprogramming.com/debugging-with-gdb-part-3/
 ```
 
 ### Radare2
@@ -473,6 +481,7 @@ q!
 dc
 afl
 pdf @main
+pd @
 db 0x72
 dc
 dr
