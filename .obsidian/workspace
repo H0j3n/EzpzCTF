@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "README.md",
+            "file": "RE/whitehat_grand_prix_qualification_2015/ha-long/README.md",
             "mode": "source"
           }
         }
@@ -52,8 +52,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "84489068cebf5eb0",
@@ -69,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "RE/whitehat_grand_prix_qualification_2015/ha-long/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -89,15 +88,15 @@
   },
   "active": "acaa709a5c4b2aab",
   "lastOpenFiles": [
+    "RE/whitehat_grand_prix_qualification_2015/ha-long/README.md",
+    "RE/whitehat_grand_prix_qualification_2015/dong-van/README.md",
     "README.md",
     "Pasted image 20210819122155.png",
-    "RE/whitehat_grand_prix_qualification_2015/dong-van/README.md",
     "RE/NullconCTF_HackIM_2015/Reversing_2/README.md",
     "RE/NullconCTF_HackIM_2015/Reversing_4/README.md",
     "Pasted image 20210818124152.png",
     "RE/NullconCTF_HackIM_2015/Reversing_1/README.md",
     "Pasted image 20210818115822.png",
-    "RE/Zh3r0_CTF_V2_2021/Eat_Sleep_Trace_Repeat/README.md",
-    "Pasted image 20210630200722.png"
+    "RE/Zh3r0_CTF_V2_2021/Eat_Sleep_Trace_Repeat/README.md"
   ]
 }
