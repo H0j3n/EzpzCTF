@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "RE/whitehat_grand_prix_qualification_2015/ha-long/README.md",
+            "file": "README.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "RE/whitehat_grand_prix_qualification_2015/ha-long/README.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,9 +88,9 @@
   },
   "active": "acaa709a5c4b2aab",
   "lastOpenFiles": [
+    "README.md",
     "RE/whitehat_grand_prix_qualification_2015/ha-long/README.md",
     "RE/whitehat_grand_prix_qualification_2015/dong-van/README.md",
-    "README.md",
     "Pasted image 20210819122155.png",
     "RE/NullconCTF_HackIM_2015/Reversing_2/README.md",
     "RE/NullconCTF_HackIM_2015/Reversing_4/README.md",

