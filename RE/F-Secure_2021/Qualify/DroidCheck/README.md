@@ -6,23 +6,23 @@ Challenge Name : DroidCheck
 
 We received one apk file . When we installed it, we can view this interface on our mobile phone.
 
-![[Pasted image 20210920213220.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210920213220.png)
 
 Trying to give random string , will give us **"WRONG PASSWORD"**
 
-![[Pasted image 20210920213246.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210920213246.png)
 
 Let's try to decompile it using `jadx-gui`. Looking at `AndroidManifest.xml` , we know that the package name is `com.test.locked`. 
 
-![[Pasted image 20210920212058.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210920212058.png)
 
 We can see more in `MainActivity.java`  
 
-![[Pasted image 20210920212246.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210920212246.png)
 
 It seems like our input which is the password will be pass to `transform` function which we can't seem to find the content of the function anywhere. Then, it will store in **"DIGEST"** which will then be called in `UnlockActivity.java` into **byteArrayExtra** variable.
 
-![[Pasted image 20210920212932.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210920212932.png)
 
 I can't solve it during the competition, but thanks to my friend @SKR , he give me some hint which is to look at **"/lib"** directory. After research on it, I found out that at `MainActivity.java`, there is one `native-lib` been loaded. This bring me to this article 
 
@@ -30,15 +30,15 @@ https://book.hacktricks.xyz/mobile-apps-pentesting/android-app-pentesting/revers
 
 The location of the library can be seen in **"/lib"** directory 
 
-![[Pasted image 20210920213132.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210920213132.png)
 
 Let's open it using Ghidra and rename the variable.
 
-![[Pasted image 20210920223229.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210920223229.png)
 
 The `transform_table` can be read by double click on the variable name. Highlight everything > Right Click > Copy Special > Byte String
 
-![[Pasted image 20210920223456.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210920223456.png)
 
 Then we can easily convert it to bytes using this command
 
@@ -82,7 +82,7 @@ print("".join(realFlag))
 
 # Flag
 
-![[Pasted image 20210920223859.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210920223859.png)
 
 # References
 
