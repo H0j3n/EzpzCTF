@@ -127,6 +127,7 @@ print("Flag : " + ''.join(flag))
 
 # Flag
 
+![[Pasted image 20210920233500.png]]
 
 # References
 
