@@ -127,7 +127,7 @@ print("Flag : " + ''.join(flag))
 
 # Flag
 
-![[Pasted image 20210920233500.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted%20image%2020210920233500.png)
 
 # References
 
