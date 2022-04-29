@@ -92,6 +92,15 @@ https://github.com/cyberblackhole/7zip-crack
 xxd files | cut -d " " -f11 | tr "\n" " " | sed 's/ //g' | sed 's/\.//g' | grep -i "flag"
 ```
 
+### eog
+
+```bash
+# Install
+sudo apt-get update
+sudo apt-get install eog
+
+```
+
 # CryptoGraphy
 
 ### Online Tools
@@ -253,6 +262,7 @@ gpg --decrypt backup.pgp
 openssl rsautl -decrypt -in flag.enc -inkey priv.key -out plaint.txt
 	-> input from base64
 openssl rsa -in public.pem -text -inform PEM -pubin
+openssl rsa -noout -text -inform PEM -in pubkey.der -pubin
 	-> Convert modulus to hex
 	-> python -c "print int('<hex>',16)"
 
@@ -294,6 +304,9 @@ jwt-cracker "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibm
 ### Jwt-Tool
 
 ```bash
+# Download
+https://github.com/ticarpi/jwt_tool
+
 # Commands
 python3 jwt_tool.py -C eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Imd1ZXN0In0.9SvIFMTsXt2gYNRF9I0ZhRhLQViY-MN7VaUutz9NA9Y -d rockyou.txt
 
@@ -383,11 +396,75 @@ Link : [http://malbolge.doleczek.pl/](http://malbolge.doleczek.pl/)
 `CB]V?Tx<uVtT`Rpo3NlF.Jh++FdbCBA@?]!~|4XzyTT43Qsqq(Lnmkj"Fhg${z@>
 ```
 
-4. **Rot13**
+4. **Rot**
 
 ```bash
 # Example
 JFJAM{j@3$@y_j!wo3y}
+```
+
+Python script to bruteforce ROT13 + ROT47
+
+```python
+# Import
+import sys
+
+# Function
+def rot13(message,counter):
+    Rot13=''
+    alphabit = 'abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    for i in message:
+        if i in alphabit:
+            Rot13 += alphabit[alphabit.index(i) + counter]
+        else:
+            Rot13 += i
+    return Rot13
+
+def rot47(data,counter):
+    decode = []
+    for i in range(len(data)):
+        encoded = ord(data[i])
+        if encoded >= 33 and encoded <= 126:
+            decode.append(chr(33 + ((encoded + counter) % 94)))
+        else:
+            decode.append(data[i])
+    return ''.join(decode)
+
+# Input
+inputs = sys.argv[1]
+
+# ROT13 Only
+print("[ROT13 Only]")
+print(rot13(inputs,13))
+print()
+
+# ROT47 Only
+print("[ROT47 Only]")
+print(rot47(inputs,14))
+print()
+
+# ROT13 + ROT47 
+print("[ROT13 + ROT47]")
+for i in range(26):
+    for j in range(28):
+        try:
+            in1 = rot13(inputs,i)
+            in2 = rot47(in1,j)
+            print(in2)
+        except:
+            pass
+print()
+# ROT47 + ROT13
+print("[ROT47 + ROT13]")
+for j in range(28):
+    for i in range(26):
+        try:
+            in1 = rot47(inputs,j)
+            in2 = rot13(in1,i)
+            print(in2)
+        except:
+            pass
+print()
 ```
 
 5. **Base64**
@@ -558,7 +635,8 @@ https://www.binaryhexconverter.com/binary-to-decimal-converter
 
 20. Hexahue Alphabet
 
-![[Pasted image 20211013214113.png]]
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted image 20211013214113.png)
+
 
 ```bash
 # References
@@ -635,6 +713,37 @@ for i in inputs.split():
 print(answers)
 ```
 
+22. Tic Tac Toe Cipher
+
+```bash
+# Link
+-> https://www.dcode.fr/tic-tac-toe-cipher
+```
+
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted image 20211129201252.png)
+
+23. Pigpen Cipher
+
+```bash
+# Link
+-> https://www.dcode.fr/pigpen-cipher
+-> https://planetcalc.com/7842/
+```
+
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted image 20211129201518.png)
+
+24. Ook Language
+
+```bash
+# Example
+-> ..... ..... ..... .!?!! .?... ..... ..... ...?. ?!.?. ..... ..... ..... ..... ..... ..!.? ..... ..... .!?!! .?... ..... ..?.? !.?.. ..... ..... ....! ..... ..... .!.?. ..... .!?!! .?!!! !!!?. ?!.?! !!!!! !...! 
+
+-> Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook! Ook? Ook. Ook?
+
+# Link
+https://www.dcode.fr/ook-language
+```
+
 # Forensics
 
 ### Online Tools
@@ -692,10 +801,21 @@ xdg-open files.docm
 	-> .pyz,.pyc
 4D 5A (MZ)
 	-> .exe,.scr,.sys,.dll,.fon,.cpl,.iec,.ime,.rs,.tsp,.mz
-
+41 72 43 01 
+	-> .arc
+42 4D
+	-> .bmp
+		-> https://medium.com/sysf/bits-to-bitmaps-a-simple-walkthrough-of-bmp-image-format-765dc6857393
+89 50 4E 47 0D 0A 1A 0A
+	-> png
+		-> https://github.com/corkami/formats/blob/master/image/png.md
 # References
 https://en.wikipedia.org/wiki/List_of_file_signatures
 ```
+
+1. PNG
+
+![](https://github.com/H0j3n/EzpzCTF/blob/main/src/Pasted image 20211209231833.png)
 
 ### Strings
 
@@ -766,6 +886,12 @@ sudo apt install tshark
 
 # Commands
 tshark -r dump.pcap
+tshark -nr payload.pcapng -Y 'frame contains "flag"' -T fields -e text
+tshark -nr payload.pcapng -Y 'dns' | head
+tshark -nr payload.pcapng -Y 'dns && ip.src == 10.10.10.10 && frame contains "local" && ip.dst==10.10.10.11'
+
+# Extract Websocket (payload)
+tshark -r something.pcap -Y websocket.payload -E occurrence=l -T fields -e text 
 
 # References
 https://cheatography.com/mbwalker/cheat-sheets/tshark-wireshark-command-line/
@@ -794,7 +920,8 @@ $ USBMS -> tshark -r data.pcapng -T fields -e usb.capdata > flag
 
 $ https://teamrocketist.github.io/2017/08/29/Forensics-Hackit-2017-USB-ducker/
 
-
+=> Websocket
+-> tshark -r something.pcap -Y websocket.payload -E occurrence=l -T fields -e text 
 ```
 
 ### GuestMount
@@ -861,6 +988,12 @@ https://spreadsecurity.github.io/2016/08/14/macro-malware-analysis.html
 sudo apt-get install volatility
 
 # Commands
+python vol.py -f honeypot.raw --profile=Win7SP0x86 pslist
+python vol.py -f honeypot.raw --profile=Win7SP0x86 -p 2700 memdump -D memdump
+python vol.py -f persist.raw --profile=Win7SP0x86 autoruns
+
+# References
+-> https://book.hacktricks.xyz/forensics/basic-forensic-methodology/memory-dump-analysis/volatility-examples
 ```
 
 ### Volatility3
@@ -875,6 +1008,7 @@ python3 vol.py -f dump.raw windows.pslist
 python3 vol.py -f dump.raw windows.psscan
 python3 vol.py -f dump.raw windows.pstree
 python3 vol.py -f dump.raw filescan
+python3 vol.py -f dump.raw windows.netstat
 python3 vol.py -f dump.raw windows.cmdline
 python3 vol.py -f dump.raw windows.pslist.PsList --pid 2964 --dump
 python3 vol.py -f dump.raw windows.hashdump
@@ -882,6 +1016,7 @@ python3 vol.py -f dump.raw windows.dumpfiles.DumpFiles --physaddr 0x3e7a4070
 
 # References
 https://blog.onfvp.com/post/volatility-cheatsheet/
+https://volatility3.readthedocs.io/en/latest/index.html
 ```
 
 ### Testdisk
@@ -947,6 +1082,67 @@ gem install zsteg
 ffmpeg -i allstar.mp3 allstar.png 
 ``` 
 
+### Arc
+
+```bash
+# Install
+sudo apt install arc
+
+# .arc Header
+41 72 43 01 
+
+# Usage
+
+```
+
+### stat
+
+```bash
+# Commands
+stat file.bmp | grep Size 
+```
+
+### kaitai
+
+```bash
+# Download
+https://github.com/kaitai-io/kaitai_struct_formats.git
+https://github.com/kaitai-io/kaitai_struct_visualizer
+gem install kaitai-struct-visualizer
+https://kaitai.io/
+
+# Usage
+ksv file.bmp ~/kaitai_struct_formats/image/bmp.ksy
+```
+
+### mmls
+
+```bash
+# Usage
+mmls files.img
+
+```
+
+### fls
+
+```bash
+# Usage
+fls -o 2048 files.img
+fls -o 2048 files.img 18290
+
+# Comments
+-> relate with icat
+```
+
+### icat
+
+```bash
+# Usage
+icat -o 2048 file.img 18291
+
+# Comments
+-> relate with fls
+```
 
 # Reverse Engineering
 
@@ -955,6 +1151,16 @@ ffmpeg -i allstar.mp3 allstar.png
 ```bash
 1. https://github.com/Kennyslaboratory/Reverse-Engineering-Cheatsheet
 2. https://awesomeopensource.com/project/NotPrab/.NET-Deobfuscator
+```
+
+### Asar
+
+```bash
+# Install
+npm -g install asar
+
+# Usage
+asar l app.asar   
 ```
 
 ### Deobfuscate Javascript
@@ -1006,6 +1212,7 @@ $ https://ctftime.org/writeup/21193
 ```bash
 # Install
 sudo apt-get install gdb
+https://ftp.gnu.org/gnu/gdb/
 
 # GEF
 https://github.com/hugsy/gef
@@ -1013,10 +1220,13 @@ https://github.com/hugsy/gef
 # Peda
 https://github.com/longld/peda
 
-# Commands
+# Commands (Read)
 x/w $rbp-0x4
 x/2b 0x00000000000072a
 x/2x 0x00000000000072a
+x/s $si
+
+# Commands(General)
 run auth2 < input.txt
 pattern_create 200
 pattern_offset AwAA
@@ -1026,6 +1236,10 @@ next
 info break
 del 1
 goto 0x08049eb9
+
+# Commands (Pie)
+pie b *0x116f
+run
 
 
 # References
@@ -1122,6 +1336,7 @@ db 0x72
 dc
 dr
 px @eax
+pxw @ rsp
 
 
 # If encounter problem
@@ -1133,6 +1348,7 @@ https://book.rada.re/
 https://software.intel.com/content/www/us/en/develop/download/intel-64-and-ia-32-architectures-sdm-combined-volumes-1-2a-2b-2c-2d-3a-3b-3c-3d-and-4.html
 https://r2wiki.readthedocs.io/en/latest/home/ctf-solving-using-radare2/
 https://github.com/historypeats/radare2-cheatsheet
+https://scoding.de/uploads/r2_cs.pdf
 ```
 
 ### Uncompyle6
@@ -1329,6 +1545,10 @@ echo -e "\naaaaaaaaaaaaaaa" > input.txt
 python -c "print 'A' * 140+'\xef\xbe\xad\xde'+'AAAAAAAA'+'\x29\x52\x55\x55\x55\x55'" | nc 127.0.0.1 1337
 python -c "print '/bin/cat\${IFS}*\n'+'A'*20+'\xe0\x83\x04\x08'+'CCCC'+'\x34\xa0\x04\x08'" | nc 127.0.0.1 1337
 python -c "print('11111111111'+'A'*285+'\xd6\x11\x40\x00\x00\x00\ncat *')" | nc 127.0.0.1 9001
+
+# Create Pattern and Check Offset
+/usr/share/metasploit-framework/tools/exploit/pattern_create.rb -l 128
+/usr/share/metasploit-framework/tools/exploit/pattern_offset.rb -q 0x62413762
 ```
 
 ### Zeratool
@@ -1398,6 +1618,27 @@ binsh:				# a label marking where /bin/sh string is
 # Commands
 hexdump -v -e '"\\""x" 1/1 "%02x" ""' shellcode.raw
 ``` 
+
+### One_gadget
+
+```bash
+# Install
+gem install one_gadget --source http://rubygems.org
+
+# Usage
+one_gadget -f libc.so.6 
+```
+
+### Check ASLR
+
+```bash
+# Commands
+cat /proc/sys/kernel/randomize_va_space
+
+# Information
+(0 = disabled)
+(1 = enabled)
+```
 
 # OSINT
 

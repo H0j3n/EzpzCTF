@@ -10,7 +10,8 @@
           "type": "markdown",
           "state": {
             "file": "README.md",
-            "mode": "source"
+            "mode": "source",
+            "source": false
           }
         }
       }
@@ -52,8 +53,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "84489068cebf5eb0",
@@ -90,14 +90,14 @@
   "active": "fa501c1e0cdce7ab",
   "lastOpenFiles": [
     "README.md",
+    "Pasted image 20211129201252.png",
+    "Pasted image 20211129201518.png",
+    "Pasted image 20211209224245.png",
+    "Pasted image 20211209231833.png",
+    "Pasted image 20211013214113.png",
     "RE/GrabConCTF_2021/Baby_Rev/README.md",
     "src/Pasted image 20210921144122.png",
     "Pasted image 20210921144041.png",
-    "Pasted image 20210921144122.png",
-    "RE/F-Secure_2021/Qualify/aWASMe/README.md",
-    "RE/GrabConCTF_2021/Baby_Rev/Untitled.md",
-    "RE/F-Secure_2021/Qualify/DroidCheck/README.md",
-    "Pasted image 20210920211839.png",
-    "RE/NullconCTF_HackIM_2015/Reversing_1/README.md"
+    "Pasted image 20210921144122.png"
   ]
 }

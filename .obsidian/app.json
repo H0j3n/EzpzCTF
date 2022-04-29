@@ -1,5 +1,7 @@
 {
   "autoConvertHtml": false,
   "readableLineLength": false,
-  "promptDelete": false
+  "promptDelete": false,
+  "legacyEditor": false,
+  "livePreview": true
 }
