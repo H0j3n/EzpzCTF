@@ -373,6 +373,25 @@ $ https://github.com/GiongfNef/Blog-CTF-2021/blob/master/CTF2021/csawctf-2021.md
 ```
 
 
+### Numbers
+
+```python
+inputs="16 9 3 15 3 20 6 { 20 8 5 14 21 13 2 5 18 19 13 1 19 15 14 }"
+print(''.join([chr(96+int(i))if not (i == "{" or i == "}") else i for i in inputs.split()]))
+```
+
+### One-Time Pad (OTP)
+
+```python
+#=====Example (1)=====
+a="0346483f243d1959563d1907563d1903543d190551023d1959073d1902573d19"
+b="61"*32
+c="5541103a246e415e036c4c5f0e3d415a513e4a560050644859536b4f57003d4c"
+k=hex(int(b,16)^int(a,16))[2:]
+flags=bytearray.fromhex(hex(int(c,16)^int(k,16))[2:]).decode()
+print("picoCTF{"+flags+"}")
+#=====================
+```
 
 ### Cipher/Encode/Hash
 
