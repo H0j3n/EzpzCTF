@@ -1172,6 +1172,12 @@ icat -o 2048 file.img 18291
 2. https://awesomeopensource.com/project/NotPrab/.NET-Deobfuscator
 ```
 
+### Online Decompiler
+
+```bash
+1. https://dogbolt.org/ [Decompiler Explorer]
+```
+
 ### Asar
 
 ```bash
